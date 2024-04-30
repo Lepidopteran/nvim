@@ -107,12 +107,33 @@ local plugins = {
 	},
 	{
 		"williamboman/mason.nvim",	
-	},
-	{
 		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
 	},
 	{
-		"neovim/nvim-lspconfig",
+		"L3MON4D3/LuaSnip",
+		version = "v2.*",
+		build = "make install_jsregexp"
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"saadparwaiz1/cmp_luasnip",	
+		},
+		config = function()
+			require("cmp").setup {
+				snippet = {
+					expand = function(args)
+						require("luasnip").lsp_expand(args.body)
+					end,
+				},
+			}
+		end
 	},
 
 	-- User Interface 

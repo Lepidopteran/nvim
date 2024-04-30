@@ -44,6 +44,13 @@ local plugins = {
 		build = ":TSUpdate"
 	},
 	{
+		"lewis6991/gitsigns.nvim",
+		event = "BufReadPre",
+		config = function()
+			require("gitsigns").setup()
+		end
+	},
+	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		init = function ()

@@ -34,3 +34,5 @@ require("mason-lspconfig").setup(mason_config)
 
 require("core.configs.lsp_config")
 
+require("extra")
+

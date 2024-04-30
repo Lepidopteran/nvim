@@ -33,6 +33,10 @@ local plugins = {
 		},
 	},
 	{
+		"brenoprata10/nvim-highlight-colors",
+		event = "BufEnter",
+	},
+	{
 		"kdheepak/lazygit.nvim",
 		cmd = { "LazyGit", "LazyGitConfig" },
 

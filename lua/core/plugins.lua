@@ -103,6 +103,7 @@ local plugins = {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+			require("which-key").register(mapping.lsp)
 			require("core.configs.lsp_config")
 		end,
 	},
@@ -133,14 +134,20 @@ local plugins = {
 			local conform = require("conform")
 
 			conform.setup({
+				formatters = {
+					html_custom = {
+						command = "prettier",
+						args = { "--parser", "html" }
+					},
+				},
 				formatters_by_ft = {
 					lua = { "stylua" },
-					javascript = { { "biome", "deno_fmt", "prettierd", "prettier" } },
-					typescript = { { "biome", "deno_fmt", "prettierd", "prettier" } },
-					html = { {"prettierd", "prettier"} },
-					css = { {"prettierd", "prettier"} },
-					svelte = { {"prettierd", "prettier"} },
-					astro = { {"prettierd", "prettier"} },
+					javascript = { { "biome", "deno_fmt", "prettier" } },
+					typescript = { { "biome", "deno_fmt", "prettier" } },
+					html = {{ "html_custom", "prettier" }},
+					css = { "prettier" },
+					svelte = { "prettier" },
+					astro = { "prettier" },
 				},
 			})
 

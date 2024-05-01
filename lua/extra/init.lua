@@ -15,3 +15,5 @@ vim.api.nvim_create_user_command('GitUI', _toggle_gitui, {});
 if vim.g.neovide then
 	vim.g.guifont = "JetBrainsMono Nerd Font:h12"
 end
+
+require("extra.windows")

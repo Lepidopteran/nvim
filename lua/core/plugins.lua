@@ -19,7 +19,7 @@ local plugins = {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			require("nvim-tree").setup {}
+			require("nvim-tree").setup({})
 			require("which-key").register(mapping.nvim_tree)
 		end,
 	},
@@ -30,71 +30,86 @@ local plugins = {
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.6",
 		dependencies = {
-			"nvim-lua/plenary.nvim"
+			"nvim-lua/plenary.nvim",
 		},
-		init = function()
-			require("telescope").setup {}
+		config = function()
+			require("telescope").setup({})
 			require("which-key").register(mapping.telescope)
-		end
+		end,
 	},
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-		init = function() require("telescope").load_extension("fzf") end
-	},
-
-	-- Editor Specific
-
-	{
-		"numToStr/Comment.nvim",
-		lazy = false,
+		init = function()
+			require("telescope").load_extension("fzf")
+		end,
 	},
 	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate"
-	},
-	{
-		"lewis6991/gitsigns.nvim",
-		event = "BufReadPre",
+		"akinsho/toggleterm.nvim",
+		version = "*",
 		config = function()
-			require("gitsigns").setup()
-		end
-	},
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		init = function ()
-			vim.o.time = true
-			vim.o.timeoutlen = 300
-		end
-	},
-	{
-		"nvim-lua/plenary.nvim"
+			require("toggleterm").setup({
+				open_mapping = [[<c-\>]],
+				direction = "float",
+				float_opts = {
+					border = "rounded",
+					winblend = 3,
+					highlights = {
+						border = "Normal",
+						background = "Normal",
+					},
+				},
+			})
+		end,
 	},
 
 	-- Language Server Related
 
 	{
 		"nvimtools/none-ls.nvim",
-		event = "BufEnter"
+		event = "BufEnter",
 	},
 	{
 		"folke/trouble.nvim",
 		branch = "dev",
-		init = function ()
+		config = function()
 			require("which-key").register(mapping.trouble)
 		end,
-		opts = {},
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
+	{
+		"folke/todo-comments.nvim",
+		event = "BufReadPre",
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
 		"williamboman/mason.nvim",
+		config = function()
+			local config = require("core.configs.mason")
+
+			require("mason").setup(config)
+		end,
+	},
+	{
 		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			local config = require("core.configs.mason_lsp")
+
+			require("mason-lspconfig").setup(config)
+		end,
+	},
+	{
 		"neovim/nvim-lspconfig",
+		config = function()
+			require("core.configs.lsp_config")
+		end,
 	},
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
-		build = "make install_jsregexp"
+		build = "make install_jsregexp",
 	},
 	{
 		"hrsh7th/nvim-cmp",
@@ -107,25 +122,91 @@ local plugins = {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
-		config = function ()
+		config = function()
 			require("core.configs.nvim-cmp")
-		end
+		end,
+	},
+	{
+		"stevearc/conform.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			local conform = require("conform")
+
+			conform.setup({
+				formatters_by_ft = {
+					lua = { "stylua" },
+					javascript = { { "biome", "deno_fmt", "prettierd", "prettier" } },
+					typescript = { { "biome", "deno_fmt", "prettierd", "prettier" } },
+					astro = { "prettier" },
+				},
+			})
+
+			require("which-key").register(mapping.formatter)
+		end,
 	},
 
-	-- User Interface 
+	-- Git Related
 
 	{
-		'nvim-lualine/lualine.nvim',
-		dependencies = { 'nvim-tree/nvim-web-devicons' },
-		init = function() require('lualine').setup {} end
+		"lewis6991/gitsigns.nvim",
+		event = "BufReadPre",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	},
+
+	-- User Interface
+
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		init = function()
+			require("lualine").setup({})
+		end,
 	},
 
 	-- Theme
 
 	{
 		"rebelot/kanagawa.nvim",
-		init = function() vim.cmd("colorscheme kanagawa") end
-	}
+		config = function()
+			vim.cmd("colorscheme kanagawa")
+		end,
+	},
+
+	-- Editor Specific
+
+	{
+		"numToStr/Comment.nvim",
+		lazy = false,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.time = true
+			vim.o.timeoutlen = 300
+		end,
+	},
 }
 
 return plugins

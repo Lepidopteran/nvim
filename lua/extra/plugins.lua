@@ -6,15 +6,15 @@ local plugins = {
 		init = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
-		ft = { "markdown" },	
+		ft = { "markdown" },
 	},
 	{
 		"jackMort/ChatGPT.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("chatgpt").setup {
+			require("chatgpt").setup({
 				api_key_cmd = "bw get notes chatgpt.nvim --raw",
-			}
+			})
 		end,
 		dependencies = {
 			"MunifTanjim/nui.nvim",
@@ -36,18 +36,10 @@ local plugins = {
 		"brenoprata10/nvim-highlight-colors",
 		event = "BufEnter",
 		config = function()
-			require("nvim-highlight-colors").setup{
+			require("nvim-highlight-colors").setup({
 				enable_tailwind = true,
-			}
+			})
 		end,
-	},
-	{
-		"kdheepak/lazygit.nvim",
-		cmd = { "LazyGit", "LazyGitConfig" },
-
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
 	},
 }
 

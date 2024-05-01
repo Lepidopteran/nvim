@@ -21,12 +21,16 @@ M.telescope = {
 }
 
 M.trouble = {
-	["<leader>xx"] = { "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)", },
-	["<leader>xX"] = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics (Trouble)", },
-	["<leader>cs"] = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)", },
-	["<leader>cl"] = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references / ... (Trouble)", },
-	["<leader>xL"] = { "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)", },
-	["<leader>xQ"] = { "<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)", },
+		["<leader>x"] = {
+			name = "Trouble",
+			x = {"<cmd>TroubleToggle<CR>", "Toggle"},
+			w = {"<cmd>TroubleToggle lsp_workspace_diagnostics<CR>", "Workspace Diagnostics"},
+			d = {"<cmd>TroubleToggle lsp_document_diagnostics<CR>", "Document Diagnostics"},
+			l = {"<cmd>TroubleToggle loclist<CR>", "Location List"},
+			q = {"<cmd>TroubleToggle quickfix<CR>", "Quickfix List"},
+		},
+		["<leader>cs"] = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)", },
+		["<leader>cl"] = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references / ... (Trouble)", },
 }
 
 M.nvim_tree = {
@@ -35,6 +39,10 @@ M.nvim_tree = {
 		e = {"<cmd>NvimTreeToggle<CR>", "Toggle"},
 		r = {"<cmd>NvimTreeRefresh<CR>", "Refresh"},
 	}
+}
+
+M.formatter = {
+  ["<leader>cf"] = { "<cmd>lua require('conform').format()<CR>", "Format" },
 }
 
 M.oil = {

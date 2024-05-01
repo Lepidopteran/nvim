@@ -26,12 +26,5 @@ local map = require("core.mapping")
 wk.register(map.general)
 wk.register(map.buffer)
 
-require("mason").setup()
-local mason_config = require("core.configs.mason_lsp")
-
-require("mason-lspconfig").setup(mason_config)
-
-require("core.configs.lsp_config")
-
 require("extra")
 

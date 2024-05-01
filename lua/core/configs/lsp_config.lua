@@ -5,7 +5,10 @@ local servers = {
 	"biome",
 	"html",
 	"cssls",
+	"tailwindcss",
 	"lua_ls",
+	"pyright",
+	"rust_analyzer",
 }
 
 for _, lsp in ipairs(servers) do

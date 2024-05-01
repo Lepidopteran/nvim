@@ -72,12 +72,45 @@ local plugins = {
 	{
 		"folke/trouble.nvim",
 		branch = "dev",
+		keys = {
+			{
+				"<leader>tx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			{
+				"<leader>tX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>ts",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols (Trouble)",
+			},
+			{
+				"<leader>tl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+			{
+				"<leader>tL",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
+			},
+			{
+				"<leader>tQ",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
+		},
 		config = function()
-			require("which-key").register(mapping.trouble)
+			require("trouble").setup({})
 		end,
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
+		opt = {},
 	},
 	{
 		"folke/todo-comments.nvim",
@@ -137,14 +170,14 @@ local plugins = {
 				formatters = {
 					html_custom = {
 						command = "prettier",
-						args = { "--parser", "html" }
+						args = { "--parser", "html" },
 					},
 				},
 				formatters_by_ft = {
 					lua = { "stylua" },
 					javascript = { { "biome", "deno_fmt", "prettier" } },
 					typescript = { { "biome", "deno_fmt", "prettier" } },
-					html = {{ "html_custom", "prettier" }},
+					html = { { "html_custom", "prettier" } },
 					css = { "prettier" },
 					svelte = { "prettier" },
 					astro = { "prettier" },

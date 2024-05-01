@@ -249,6 +249,22 @@ local plugins = {
 			vim.o.time = true
 			vim.o.timeoutlen = 300
 		end,
+
+		config = function()
+			local wk = require("which-key")
+
+			wk.register({
+				y = { '"+y', "Copy to clipboard" },
+				x = { '"+x', "Cut to clipboard" },
+				p = { '"+p', "Paste from clipboard" },
+			}, { mode = "n", prefix = "<leader>" })
+
+			wk.register({
+				y = { '"+y', "Copy to clipboard" },
+				x = { '"+x', "Cut to clipboard" },
+				p = { '"+p', "Paste from clipboard" },
+			}, { mode = "v", prefix = "<leader>" })
+		end,
 	},
 }
 

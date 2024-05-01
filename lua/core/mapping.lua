@@ -37,4 +37,11 @@ M.nvim_tree = {
 	}
 }
 
+M.oil = {
+  ["<leader>e"] = {
+    name = "Oil",
+    o = {"<cmd>Oil --float<CR>", "Open Oil"},
+  }
+}
+
 return M

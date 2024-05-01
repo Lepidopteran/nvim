@@ -6,7 +6,10 @@ local plugins = {
 	{
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		init = function() require("oil").setup {} end
+		config = function()
+			require("oil").setup({})
+			require("which-key").register(mapping.oil)
+		end,
 	},
 	{
 		"nvim-tree/nvim-tree.lua",

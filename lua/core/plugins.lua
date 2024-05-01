@@ -86,7 +86,7 @@ local plugins = {
 	},
 	{
 		"williamboman/mason.nvim",
-		config = function()
+		init = function()
 			local config = require("core.configs.mason")
 
 			require("mason").setup(config)
@@ -94,7 +94,7 @@ local plugins = {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		config = function()
+		init = function()
 			local config = require("core.configs.mason_lsp")
 
 			require("mason-lspconfig").setup(config)
@@ -102,7 +102,7 @@ local plugins = {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		config = function()
+		init = function()
 			require("core.configs.lsp_config")
 		end,
 	},
@@ -137,6 +137,9 @@ local plugins = {
 					lua = { "stylua" },
 					javascript = { { "biome", "deno_fmt", "prettierd", "prettier" } },
 					typescript = { { "biome", "deno_fmt", "prettierd", "prettier" } },
+					html = { "prettier" },
+					css = { "prettier" },
+					svelte = { "prettier" },
 					astro = { "prettier" },
 				},
 			})

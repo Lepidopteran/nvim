@@ -1,3 +1,4 @@
+local mapping = require("core.mapping")
 local plugins = {
 
 	-- File Management
@@ -5,6 +6,7 @@ local plugins = {
 	{
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		init = function() require("oil").setup {} end
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -15,22 +17,27 @@ local plugins = {
 		},
 		config = function()
 			require("nvim-tree").setup {}
+			require("which-key").register(mapping.nvim_tree)
 		end,
 	},
 
 	-- Utilites
-
 
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.6",
 		dependencies = {
 			"nvim-lua/plenary.nvim"
-		}
+		},
+		init = function()
+			require("telescope").setup {}
+			require("which-key").register(mapping.telescope)
+		end
 	},
-	{ 
+	{
 		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build" 
+		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+		init = function() require("telescope").load_extension("fzf") end
 	},
 
 	-- Editor Specific
@@ -71,42 +78,13 @@ local plugins = {
 	{
 		"folke/trouble.nvim",
 		branch = "dev",
-		keys = {
-			{
-				"<leader>xx",
-				"<cmd>Trouble diagnostics toggle<cr>",
-				desc = "Diagnostics (Trouble)",
-			},
-			{
-				"<leader>xX",
-				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-				desc = "Buffer Diagnostics (Trouble)",
-			},
-			{
-				"<leader>cs",
-				"<cmd>Trouble symbols toggle focus=false<cr>",
-				desc = "Symbols (Trouble)",
-			},
-			{
-				"<leader>cl",
-				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-				desc = "LSP Definitions / references / ... (Trouble)",
-			},
-			{
-				"<leader>xL",
-				"<cmd>Trouble loclist toggle<cr>",
-				desc = "Location List (Trouble)",
-			},
-			{
-				"<leader>xQ",
-				"<cmd>Trouble qflist toggle<cr>",
-				desc = "Quickfix List (Trouble)",
-			},
-		},
+		init = function ()
+			require("which-key").register(mapping.trouble)
+		end,
 		opts = {},
 	},
 	{
-		"williamboman/mason.nvim",	
+		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 	},
@@ -123,16 +101,11 @@ local plugins = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
-			"saadparwaiz1/cmp_luasnip",	
+			"saadparwaiz1/cmp_luasnip",
+			"rafamadriz/friendly-snippets",
 		},
-		config = function()
-			require("cmp").setup {
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
-			}
+		config = function ()
+			require("core.configs.nvim-cmp")
 		end
 	},
 
@@ -140,13 +113,15 @@ local plugins = {
 
 	{
 		'nvim-lualine/lualine.nvim',
-		dependencies = { 'nvim-tree/nvim-web-devicons' }
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
+		init = function() require('lualine').setup {} end
 	},
 
 	-- Theme
 
 	{
 		"rebelot/kanagawa.nvim",
+		init = function() vim.cmd("colorscheme kanagawa") end
 	}
 }
 

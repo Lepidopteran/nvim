@@ -1,6 +1,5 @@
-require("core.remap")
-
-local M = {}
+local vim = vim
+local opt = vim.opt
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -19,7 +18,5 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   })
 end
 
-
-vim.opt.rtp:prepend(lazypath)
-
-
+opt.rtp:prepend(lazypath)
+opt.number = true

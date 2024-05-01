@@ -1,7 +1,15 @@
 require("core")
 
+local vim = vim
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+vim.keymap.set('n', '<c-h>', '<c-w>h')
+vim.keymap.set('n', '<c-j>', '<c-w>j')
+vim.keymap.set("n", "<c-k>", "<c-w>k")
+vim.keymap.set("n", "<c-l>", "<c-w>l")
+vim.keymap.set("n", ";", ":")
 
 require("lazy").setup({
 	{
@@ -12,20 +20,11 @@ require("lazy").setup({
 	}
 })
 
-vim.cmd("colorscheme kanagawa")
+local wk = require("which-key")
+local map = require("core.mapping")
 
-require("lualine").setup()
-
-require("oil").setup()
-require("nvim-tree").setup()
-require("telescope").setup()
-require("telescope").load_extension("fzf")
-
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+wk.register(map.general)
+wk.register(map.buffer)
 
 require("mason").setup()
 local mason_config = require("core.configs.mason_lsp")

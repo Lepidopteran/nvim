@@ -31,5 +31,17 @@ local map = require("core.mapping")
 wk.register(map.general)
 wk.register(map.buffer)
 
+wk.register({
+    y = { '"+y', "Copy to clipboard" },
+    x = { '"+x', "Cut to clipboard" },
+    p = { '"+p', "Paste from clipboard" },
+}, { mode = "n", prefix = "<leader>" })
+
+wk.register({
+    y = { '"+y', "Copy to clipboard" },
+    x = { '"+x', "Cut to clipboard" },
+    p = { '"+p', "Paste from clipboard" },
+}, { mode = "v", prefix = "<leader>" })
+
 require("extra")
 

@@ -233,6 +233,10 @@ local plugins = {
 		build = ":TSUpdate",
 	},
 	{
+		"RRethy/vim-illuminate",
+		event = "BufReadPre",
+	},
+	{
 		"kylechui/nvim-surround",
 		version = "*",
 		event = "VeryLazy",

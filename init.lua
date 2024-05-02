@@ -25,11 +25,5 @@ require("lazy").setup({
 	}
 })
 
-local wk = require("which-key")
-local map = require("core.mapping")
-
-wk.register(map.general)
-wk.register(map.buffer)
-
 require("extra")
 

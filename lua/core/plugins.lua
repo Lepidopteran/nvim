@@ -253,17 +253,8 @@ local plugins = {
 		config = function()
 			local wk = require("which-key")
 
-			wk.register({
-				y = { '"+y', "Copy to clipboard" },
-				x = { '"+x', "Cut to clipboard" },
-				p = { '"+p', "Paste from clipboard" },
-			}, { mode = "n", prefix = "<leader>" })
-
-			wk.register({
-				y = { '"+y', "Copy to clipboard" },
-				x = { '"+x', "Cut to clipboard" },
-				p = { '"+p', "Paste from clipboard" },
-			}, { mode = "v", prefix = "<leader>" })
+			wk.register(mapping.general)
+			wk.register(mapping.buffer)
 		end,
 	},
 }

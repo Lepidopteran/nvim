@@ -1,4 +1,11 @@
+local mapping = require("extra.mapping")
+wk = require("which-key")
+
 local plugins = {
+	{
+		"stevearc/dressing.nvim",
+		opts = {},
+	},
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
@@ -44,6 +51,17 @@ local plugins = {
 		config = function()
 			require("nvim-highlight-colors").setup({
 				enable_tailwind = true,
+			})
+		end,
+	},
+	{
+		"ziontee113/icon-picker.nvim",
+		event = "BufEnter",
+		config = function()
+			require("icon-picker").setup({ disable_legacy_commands = true })
+			wk.register(mapping.IconPicker, {
+				noremap = true,
+				silent = true,
 			})
 		end,
 	},

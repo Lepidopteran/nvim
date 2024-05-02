@@ -28,4 +28,12 @@ M.ChatGPT = {
 }
 
 
+M.ZenMode = {
+	["<leader>z"] = {
+		name = "Zen Mode",
+		z = { "<cmd>ZenMode<CR>", "Toggle Zen Mode" },
+		t = { "<cmd>Twilight<CR>", "Toggle Twilight" },
+	},
+}
+
 return M

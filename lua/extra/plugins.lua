@@ -7,6 +7,29 @@ local plugins = {
 		opts = {},
 	},
 	{
+		"folke/which-key.nvim",
+		config = function()
+			wk.register(mapping.ZenMode)
+		end,
+	},
+	{
+		"folke/twilight.nvim",
+		cmd = "Twilight",
+	},
+	{
+		"folke/zen-mode.nvim",
+		config = function()
+			require("zen-mode").setup({
+				window = {
+					width = 0.85,
+				},
+			})
+
+		end,
+
+		cmd = "ZenMode",
+	},
+	{
 		"neovim/nvim-lspconfig",
 		config = function()
 			require("extra.configs.lsp_config")

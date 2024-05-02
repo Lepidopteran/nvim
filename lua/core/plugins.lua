@@ -78,6 +78,7 @@ local plugins = {
 	{
 		"folke/trouble.nvim",
 		branch = "dev",
+		command = { "Trouble" },
 		keys = {
 			{
 				"<leader>tx",

@@ -186,8 +186,6 @@ local plugins = {
 					typescript = { { "biome", "deno_fmt", "prettier" } },
 					html = { { "html_custom", "prettier" } },
 					css = { "prettier" },
-					svelte = { "prettier" },
-					astro = { "prettier" },
 				},
 			})
 

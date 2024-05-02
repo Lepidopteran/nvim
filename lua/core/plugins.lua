@@ -257,10 +257,6 @@ local plugins = {
 		init = function()
 			vim.o.time = true
 			vim.o.timeoutlen = 300
-		end,
-
-		config = function()
-			local wk = require("which-key")
 
 			wk.register(mapping.general)
 			wk.register(mapping.buffer)

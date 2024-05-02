@@ -27,3 +27,5 @@ M.ChatGPT = {
 	},
 }
 
+
+return M

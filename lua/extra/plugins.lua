@@ -28,6 +28,8 @@ local plugins = {
 			require("chatgpt").setup({
 				api_key_cmd = "bw get notes chatgpt.nvim --raw",
 			})
+
+			wk.register(mapping.ChatGPT)
 		end,
 		dependencies = {
 			"MunifTanjim/nui.nvim",

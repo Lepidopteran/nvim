@@ -3,7 +3,6 @@ local M = {
 		"stylua",
 		"deno",
 		"biome",
-		"astro-language-server",
 		"prettier",
 		"prettierd",
 	},

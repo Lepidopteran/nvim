@@ -9,7 +9,6 @@ local servers = {
 	"lua_ls",
 	"pyright",
 	"rust_analyzer",
-	"astro",
 }
 
 for _, lsp in ipairs(servers) do

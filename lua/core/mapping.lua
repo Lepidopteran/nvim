@@ -76,7 +76,7 @@ M.lsp = {
 }
 
 M.formatter = {
-	["<leader>cf"] = { "<cmd>lua require('conform').format()<CR>", "Format" },
+	["<leader>lf"] = { "<cmd>lua require('conform').format()<CR>", "Format" },
 }
 
 M.oil = {

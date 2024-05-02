@@ -45,6 +45,12 @@ local plugins = {
 		end,
 	},
 	{
+		"nvim-telescope/telescope-frecency.nvim",
+		config = function()
+			require("telescope").load_extension("frecency")
+		end,
+	},
+	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		config = function()

@@ -20,23 +20,36 @@ M.telescope = {
 		f = { "<cmd>Telescope find_files<CR>", "Find Files" },
 		g = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
 		b = { "<cmd>Telescope buffers<CR>", "Buffers" },
-		h = { "<cmd>Telescope help_tags<CR>", "Help Tags" },
-	},
-}
-
-M.trouble = {
-	["<leader>t"] = {
-		name = "Trouble",
-		x = { "<cmd>TroubleToggle<CR>", "Toggle" },
-		w = { "<cmd>TroubleToggle lsp_workspace_diagnostics<CR>", "Workspace Diagnostics" },
-		d = { "<cmd>TroubleToggle lsp_document_diagnostics<CR>", "Document Diagnostics" },
-		l = { "<cmd>TroubleToggle loclist<CR>", "Location List" },
-		q = { "<cmd>TroubleToggle quickfix<CR>", "Quickfix List" },
-	},
-	["<leader>cs"] = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)" },
-	["<leader>cl"] = {
-		"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-		"LSP Definitions / references / ... (Trouble)",
+		o = { "<cmd>Telescope oldfiles<CR>", "Old Files" },
+		h = { "<cmd>Telescope frecency<CR>", "Frecency" },
+		m = { "<cmd>Telescope marks<CR>", "Marks" },
+		s = {
+			name = "Symbols",
+			d = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
+			w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" },
+		},
+		l = {
+			name = "LSP",
+			d = { "<cmd>Telescope lsp_definitions<CR>", "Definitions" },
+			r = { "<cmd>Telescope lsp_references<CR>", "References" },
+			i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
+			t = { "<cmd>Telescope lsp_type_definitions<CR>", "Type Definitions" },
+		},
+		e = {
+			name = "Extra",
+			c = { "<cmd>Telescope commands<CR>", "Commands" },
+			h = { "<cmd>Telescope help_tags<CR>", "Help Tags" },
+			s = { "<cmd>Telescope highlights<CR>", "Highlights" },
+			w = { "<cmd>Telescope spell_suggest<CR>", "Spell Suggest" },
+		},
+		r = {
+			name = "Git",
+			c = { "<cmd>Telescope git_commits<CR>", "Commits" },
+			b = { "<cmd>Telescope git_branches<CR>", "Branches" },
+			s = { "<cmd>Telescope git_status<CR>", "Status" },
+			f = { "<cmd>Telescope git_files<CR>", "Files" },
+		},
+		t = { "<cmd>Telescope treesitter<CR>", "Treesitter" },
 	},
 }
 

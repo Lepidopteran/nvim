@@ -12,6 +12,12 @@ M.general = {
 }
 
 M.buffer = {
+	["<leader>b"] = {
+		c = { "<cmd>bdelete<CR>", "Close Buffer" },
+		n = { "<cmd>bnext<CR>", "Next Buffer" },
+		p = { "<cmd>bprevious<CR>", "Previous Buffer" },
+		b = { "<cmd>Telescope buffers<CR>", "Find Buffer" },
+	},
 }
 
 M.telescope = {

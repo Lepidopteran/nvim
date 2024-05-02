@@ -27,6 +27,16 @@ M.ChatGPT = {
 	},
 }
 
+M.git = {
+	["<leader>g"] = {
+		name = "Git",
+		u = {
+			name = "Interface",
+			l = { "<cmd>LazyGit<CR>", "LazyGit" },
+			u = { "<cmd>GitUI<CR>", "GitUI" },
+		}
+	}
+}
 
 M.ZenMode = {
 	["<leader>z"] = {

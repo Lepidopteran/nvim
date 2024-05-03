@@ -9,7 +9,6 @@ local plugins = {
 	{
 		"folke/which-key.nvim",
 		config = function()
-			wk.register(mapping.git)
 			wk.register(mapping.ZenMode)
 		end,
 	},

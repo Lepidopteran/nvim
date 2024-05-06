@@ -9,6 +9,7 @@ M.general = {
 		x = { '"+x', "Cut to clipboard", mode = { "n", "v" } },
 		p = { '"+p', "Paste from clipboard", mode = { "n", "v" } },
 	},
+	p = { "P", "Paste without yanking", mode = { "x" }, silent = true },
 }
 
 M.buffer = {

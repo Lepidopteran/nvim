@@ -24,7 +24,7 @@ local plugins = {
 		end,
 	},
 
-	-- Utilites
+	-- Utilities
 
 	{
 		"nvim-telescope/telescope.nvim",

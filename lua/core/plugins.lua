@@ -147,6 +147,10 @@ local plugins = {
 			require("which-key").register(mapping.lsp)
 			require("core.configs.lsp_config")
 		end,
+
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+		},
 	},
 	{
 		"L3MON4D3/LuaSnip",

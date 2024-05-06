@@ -16,3 +16,9 @@ local servers = {
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup{}
 end
+
+lspconfig.typos_lsp.setup({
+	init_options = {
+		diagnosticSeverity = "hint",
+	}
+})

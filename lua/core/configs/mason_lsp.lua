@@ -21,6 +21,9 @@ local M = {
 
     -- Rust
     "rust_analyzer",
+
+		-- Spelling
+		"typos_lsp",
 	},
 }
 

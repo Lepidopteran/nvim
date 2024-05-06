@@ -16,6 +16,8 @@ local M = {
 		"cssls",
 		"tsserver",
 		"tailwindcss",
+		"astro",
+		"svelte",
 
     -- Rust
     "rust_analyzer",

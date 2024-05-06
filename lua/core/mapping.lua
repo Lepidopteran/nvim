@@ -1,14 +1,14 @@
 local M = {}
 
 M.general = {
-	["<C-s>"] = { "<cmd>w<CR>", "Save File", silent = true },
-	["<esc>"] = { "<cmd>noh<CR>", "Clear Highlights", silent = true },
+	["<C-s>"] = { "<cmd>w<CR>", "Save File" },
+	["<esc>"] = { "<cmd>noh<CR>", "Clear Highlights" },
 	["<leader>"] = {
-		y = { '"+y', "Copy to clipboard", mode = { "n", "v" }},
-		d = { '"+d', "Cut to clipboard", mode = { "n", "v" }},
-		x = { '"+x', "Cut to clipboard", mode = { "n", "v" }},
-		p = { '"+p', "Paste from clipboard", mode = { "n", "v" }},
-	}
+		y = { '"+y', "Copy to clipboard", mode = { "n", "v" } },
+		d = { '"+d', "Cut to clipboard", mode = { "n", "v" } },
+		x = { '"+x', "Cut to clipboard", mode = { "n", "v" } },
+		p = { '"+p', "Paste from clipboard", mode = { "n", "v" } },
+	},
 }
 
 M.buffer = {

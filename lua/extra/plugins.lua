@@ -37,12 +37,6 @@ local plugins = {
 		cmd = "ZenMode",
 	},
 	{
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("extra.configs.lsp_config")
-		end,
-	},
-	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		build = "cd app && bun install",

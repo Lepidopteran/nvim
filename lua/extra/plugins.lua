@@ -17,6 +17,13 @@ local plugins = {
 		cmd = "Twilight",
 	},
 	{
+		"nvim-treesitter/nvim-treesitter-context",
+		event = "BufRead",
+		config = function()
+			require("treesitter-context").setup({})
+		end,
+	},
+	{
 		"folke/zen-mode.nvim",
 		config = function()
 			require("zen-mode").setup({

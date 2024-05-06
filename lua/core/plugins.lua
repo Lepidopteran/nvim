@@ -231,6 +231,11 @@ local plugins = {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		config = function()
+			local config = require("core.configs.treesitter")
+
+			require("nvim-treesitter.configs").setup(config)
+		end,
 	},
 	{
 		"RRethy/vim-illuminate",

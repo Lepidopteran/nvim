@@ -14,6 +14,8 @@ local M = {
 		"svelte",
 		"toml",
 		"typescript",
+		"vim",
+		"vimdoc",
 		"vue",
 		"yaml",
 	},

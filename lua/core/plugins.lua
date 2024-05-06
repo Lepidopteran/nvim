@@ -250,6 +250,10 @@ local plugins = {
 		end,
 	},
 	{
+		"HiPhish/rainbow-delimiters.nvim",
+		event = "BufReadPre",
+	},
+	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = function()

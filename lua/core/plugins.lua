@@ -243,6 +243,13 @@ local plugins = {
 		end,
 	},
 	{
+		"nvim-treesitter/nvim-treesitter-context",
+		event = "BufRead",
+		config = function()
+			require("treesitter-context").setup({})
+		end,
+	},
+	{
 		"RRethy/vim-illuminate",
 		event = "BufReadPre",
 	},

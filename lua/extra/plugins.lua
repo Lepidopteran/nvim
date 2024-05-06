@@ -7,6 +7,27 @@ local plugins = {
 		opts = {},
 	},
 	{
+		"rcarriga/nvim-notify",
+		event = "VeryLazy",
+		config = function()
+			local config = require("extra.configs.notify")
+			require("notify").setup(config)
+		end,
+
+	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		config = function()
+			local config = require("extra.configs.noice")
+			require("noice").setup(config)
+		end,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"rcarriga/nvim-notify",
+		},
+	},
+	{
 		"folke/which-key.nvim",
 		config = function()
 			wk.register(mapping.ZenMode)
@@ -15,13 +36,6 @@ local plugins = {
 	{
 		"folke/twilight.nvim",
 		cmd = "Twilight",
-	},
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		event = "BufRead",
-		config = function()
-			require("treesitter-context").setup({})
-		end,
 	},
 	{
 		"folke/zen-mode.nvim",

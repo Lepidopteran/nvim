@@ -142,10 +142,9 @@ local plugins = {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		init = function()
-			require("which-key").register(mapping.lsp)
-		end,
+		event = "BufReadPre",
 		config = function()
+			require("which-key").register(mapping.lsp)
 			require("core.configs.lsp_config")
 		end,
 	},

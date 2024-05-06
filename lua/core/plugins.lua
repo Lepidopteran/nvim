@@ -142,8 +142,10 @@ local plugins = {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		config = function()
+		init = function()
 			require("which-key").register(mapping.lsp)
+		end,
+		config = function()
 			require("core.configs.lsp_config")
 		end,
 	},

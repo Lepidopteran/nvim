@@ -1,11 +1,12 @@
 local M = {}
 
 M.IconPicker = {
-	n = {
-		["<Leader><Leader>i"] = { "<cmd>IconPickerNormal<cr>", "Open Icon Picker" },
-		["<Leader><Leader>y"] = { "<cmd>IconPickerYank<cr>", "Yank the selected icon into register" },
+	["<Leader>I"] = {
+		name = "Icon Picker",
+		I = { "<cmd>IconPickerInsert<cr>", "Insert Icon" },
+		i = { "<cmd>IconPickerNormal<cr>", "Open Icon Picker" },
+		y = { "<cmd>IconPickerYank<cr>", "Yank the selected icon into register" },
 	},
-	["<C-I>"] = { "<cmd>IconPickerInsert<cr>", "Insert Icon" },
 }
 
 M.ChatGPT = {
@@ -30,7 +31,7 @@ M.ChatGPT = {
 M.LazyGit = {
 	["<leader>g"] = {
 		name = "Git",
-		i = { "<cmd>LazyGit<CR>", "LazyGit" },
+		ui = { "<cmd>LazyGit<CR>", "LazyGit" },
 	},
 }
 

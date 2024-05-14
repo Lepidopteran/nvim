@@ -231,7 +231,10 @@ local plugins = {
 
 	{
 		"numToStr/Comment.nvim",
-		lazy = false,
+		event = "BufReadPre",
+		config = function()
+			require("Comment").setup({})
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",

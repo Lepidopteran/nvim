@@ -31,7 +31,7 @@ M.ChatGPT = {
 M.LazyGit = {
 	["<leader>g"] = {
 		name = "Git",
-		ui = { "<cmd>LazyGit<CR>", "LazyGit" },
+		i = { "<cmd>LazyGit<CR>", "LazyGit" },
 	},
 }
 

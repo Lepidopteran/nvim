@@ -123,6 +123,10 @@ local plugins = {
 		"folke/todo-comments.nvim",
 		event = "BufReadPre",
 		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {},
+		config = function()
+			require("todo-comments").setup({})
+		end,
 	},
 	{
 		"williamboman/mason.nvim",

@@ -69,10 +69,12 @@ M.nvim_tree = {
 }
 
 M.lsp = {
+	K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover", silent = true, noremap = true },
 	["<leader>l"] = {
 		name = "LSP",
-		d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to Definition" },
-		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+		d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to Definition", silent = true, noremap = true },
+		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename", silent = true, noremap = true },
+		s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help", silent = true, noremap = true },
 	},
 }
 
@@ -83,6 +85,26 @@ M.formatter = {
 M.oil = {
 	["<leader>e"] = {
 		o = { "<cmd>Oil --float<CR>", "Open Oil" },
+	},
+}
+
+M.gitsigns = {
+	["<leader>g"] = {
+		name = "Git",
+		b = { "<cmd>lua require('gitsigns').blame_line()<CR>", "Toggle Blame" },
+		d = { "<cmd>lua require('gitsigns').toggle_deleted()<CR>", "Diff" }, 
+		p = { "<cmd>lua require('gitsigns').preview_hunk()<CR>", "Preview Hunk" },
+		D = { "<cmd>lua require('gitsigns').diffthis()<CR>", "Diff" },
+		R = {
+			name = "Reset",
+			b = { "<cmd>lua require('gitsigns').reset_buffer()<CR>", "Reset Buffer" },
+			h = { "<cmd>lua require('gitsigns').reset_hunk()<CR>", "Reset Hunk" },
+		},
+		S = {
+			name = "Stage",
+			b = { "<cmd>lua require('gitsigns').stage_buffer()<CR>", "Stage Buffer" },
+			h = { "<cmd>lua require('gitsigns').stage_hunk()<CR>", "Stage Hunk" },
+		},
 	},
 }
 

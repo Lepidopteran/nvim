@@ -13,5 +13,3 @@ wk.register(mapping.LazyGit)
 if vim.g.neovide then
 	vim.g.guifont = "JetBrainsMono Nerd Font:h12"
 end
-
-require("extra.windows")

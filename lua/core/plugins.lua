@@ -290,7 +290,7 @@ local plugins = {
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		init = function()
-			vim.o.time = true
+			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 
 			wk.register(mapping.general)

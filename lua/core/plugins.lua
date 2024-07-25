@@ -212,7 +212,7 @@ local plugins = {
 				type = "executable",
 				command = "lldb-vscode",
 			}
-		end
+		end,
 	},
 
 	-- Git Related
@@ -301,18 +301,18 @@ local plugins = {
 		end,
 	},
 	{
-"folke/which-key.nvim",
-  event = "VeryLazy",
-  opts = {},
-  keys = {
-    {
-      "<leader>?",
-      function()
-        require("which-key").show({ global = false })
-      end,
-      desc = "Buffer Local Keymaps (which-key)",
-    },
-  },
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
 		init = function()
 			local wk = require("which-key")
 			wk.add(mapping.general)

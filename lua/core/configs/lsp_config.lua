@@ -1,7 +1,6 @@
 local lspconfig = require("lspconfig")
 
 local servers = {
-	"tsserver",
 	"biome",
 	"html",
 	"cssls",
@@ -14,13 +13,25 @@ local servers = {
 }
 
 for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup{}
+	lspconfig[lsp].setup({})
 end
+
+-- TypeScript LSP
+
+lspconfig.tsserver.setup({
+	settings = {
+		implicitProjectConfiguration = {
+			checkJs = true,
+		},
+	},
+})
+
+-- Typos LSP
 
 lspconfig.typos_lsp.setup({
 	init_options = {
 		diagnosticSeverity = "hint",
-	}
+	},
 })
 
 local signs = {

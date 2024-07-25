@@ -1,111 +1,90 @@
 local M = {}
 
 M.general = {
-	["<C-s>"] = { "<cmd>w<CR>", "Save File" },
-	["<esc>"] = { "<cmd>noh<CR>", "Clear Highlights" },
-	["<leader>"] = {
-		y = { '"+y', "Copy to clipboard", mode = { "n", "v" } },
-		d = { '"+d', "Cut to clipboard", mode = { "n", "v" } },
-		x = { '"+x', "Cut to clipboard", mode = { "n", "v" } },
-		p = { '"+p', "Paste from clipboard", mode = { "n", "v" } },
+	{ "<C-s>", "<cmd>w<CR>", desc = "Save File" },
+	{ "<esc>", "<cmd>noh<CR>", desc = "Clear Highlights" },
+	{
+		mode = { "n", "v" },
+		{ "<leader>d", '"+d', desc = "Cut to clipboard" },
+		{ "<leader>p", '"+p', desc = "Paste from clipboard" },
+		{ "<leader>x", '"+x', desc = "Cut to clipboard" },
+		{ "<leader>y", '"+y', desc = "Copy to clipboard" },
 	},
-	p = { "P", "Paste without yanking", mode = { "x" }, silent = true },
-}
-
-M.buffer = {
-	["<leader>b"] = {
-		c = { "<cmd>bdelete<CR>", "Close Buffer" },
-		n = { "<cmd>bnext<CR>", "Next Buffer" },
-		p = { "<cmd>bprevious<CR>", "Previous Buffer" },
-		b = { "<cmd>Telescope buffers<CR>", "Find Buffer" },
-	},
+	{ "p", "P", desc = "Paste without yanking", mode = "x" },
 }
 
 M.telescope = {
-	["<leader>f"] = {
-		name = "Telescope",
-		f = { "<cmd>Telescope find_files<CR>", "Find Files" },
-		g = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
-		b = { "<cmd>Telescope buffers<CR>", "Buffers" },
-		o = { "<cmd>Telescope oldfiles<CR>", "Old Files" },
-		h = { "<cmd>Telescope frecency<CR>", "Frecency" },
-		m = { "<cmd>Telescope marks<CR>", "Marks" },
-		s = {
-			name = "Symbols",
-			d = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
-			w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" },
-		},
-		l = {
-			name = "LSP",
-			d = { "<cmd>Telescope lsp_definitions<CR>", "Definitions" },
-			r = { "<cmd>Telescope lsp_references<CR>", "References" },
-			i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations" },
-			t = { "<cmd>Telescope lsp_type_definitions<CR>", "Type Definitions" },
-		},
-		e = {
-			name = "Extra",
-			c = { "<cmd>Telescope commands<CR>", "Commands" },
-			h = { "<cmd>Telescope help_tags<CR>", "Help Tags" },
-			s = { "<cmd>Telescope highlights<CR>", "Highlights" },
-			w = { "<cmd>Telescope spell_suggest<CR>", "Spell Suggest" },
-		},
-		r = {
-			name = "Git",
-			c = { "<cmd>Telescope git_commits<CR>", "Commits" },
-			b = { "<cmd>Telescope git_branches<CR>", "Branches" },
-			s = { "<cmd>Telescope git_status<CR>", "Status" },
-			f = { "<cmd>Telescope git_files<CR>", "Files" },
-		},
-		t = { "<cmd>Telescope treesitter<CR>", "Treesitter" },
-	},
+	{"<leader>f", group="Telescope" },
+	{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find Files" },
+	{ "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Live Grep" },
+	{ "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Buffers" },
+	{ "<leader>fo", "<cmd>Telescope oldfiles<CR>", desc = "Old Files" },
+	{ "<leader>fh", "<cmd>Telescope frecency<CR>", desc = "Frecency" },
+	{ "<leader>fm", "<cmd>Telescope marks<CR>", desc = "Marks" },
+	{ "<leader>fs", group="Symbols" },
+	{ "<leader>fsd", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Document Symbols" },
+	{ "<leader>fsw", "<cmd>Telescope lsp_workspace_symbols<CR>", desc = "Workspace Symbols" },
+	{ "<leader>fl", group="LSP" },
+	{ "<leader>fld", "<cmd>Telescope lsp_definitions<CR>", desc = "Definitions" },
+	{ "<leader>flr", "<cmd>Telescope lsp_references<CR>", desc = "References" },
+	{ "<leader>fli", "<cmd>Telescope lsp_implementations<CR>", desc = "Implementations" },
+	{ "<leader>flt", "<cmd>Telescope lsp_type_definitions<CR>", desc = "Type Definitions" },
+	{ "<leader>fe", group="Extra" },
+	{ "<leader>fec", "<cmd>Telescope commands<CR>", desc = "Commands" },
+	{ "<leader>feh", "<cmd>Telescope help_tags<CR>", desc = "Help Tags" },
+	{ "<leader>fes", "<cmd>Telescope highlights<CR>", desc = "Highlights" },
+	{ "<leader>few", "<cmd>Telescope spell_suggest<CR>", desc = "Spell Suggest" },
+	{ "<leader>fr", group="Git" },
+	{ "<leader>frc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
+	{ "<leader>frb", "<cmd>Telescope git_branches<CR>", desc = "Branches" },
+	{ "<leader>frs", "<cmd>Telescope git_status<CR>", desc = "Status" },
+	{ "<leader>frf", "<cmd>Telescope git_files<CR>", desc = "Files" },
+	{ "<leader>ft", "<cmd>Telescope treesitter<CR>", desc = "Treesitter" },
+}
+
+M.buffer = {
+	{ "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Find Buffer" },
+	{ "<leader>bc", "<cmd>bdelete<cr>", desc = "Close Buffer" },
+	{ "<leader>bn", "<cmd>bnext<cr>", desc = "Next Buffer" },
+	{ "<leader>bp", "<cmd>bprevious<cr>", desc = "Previous Buffer" },
 }
 
 M.nvim_tree = {
-	["<leader>e"] = {
-		name = "Explorer",
-		e = { "<cmd>NvimTreeToggle<CR>", "Toggle" },
-		r = { "<cmd>NvimTreeRefresh<CR>", "Refresh" },
-	},
+	{ "<leader>e", group="file" },
+	{ "<leader>ee", "<cmd>NvimTreeToggle<CR>", desc = "Toggle" },
+	{ "<leader>er", "<cmd>NvimTreeRefresh<CR>", desc = "Refresh" },
+	{ "<leader>ef", "<cmd>NvimTreeFindFile<CR>", desc = "Find File" },
 }
 
 M.lsp = {
-	K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover", silent = true, noremap = true },
-	["<leader>l"] = {
-		name = "LSP",
-		d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to Definition", silent = true, noremap = true },
-		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename", silent = true, noremap = true },
-		s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help", silent = true, noremap = true },
-	},
+	{ "<leader>l", group="lsp"},
+	{ "<leader>lK", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Hover" },
+	{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
+	{ "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to Definition" },
+	{ "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },
+	{ "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", desc = "Signature Help" },
 }
 
 M.formatter = {
-	["<leader>lf"] = { "<cmd>lua require('conform').format()<CR>", "Format" },
+	{"<leader>lf", "<cmd>lua require('conform').format()<CR>", desc = "Format" },
 }
 
 M.oil = {
-	["<leader>e"] = {
-		o = { "<cmd>Oil --float<CR>", "Open Oil" },
-	},
+	{"<leader>eo","<cmd>Oil --float<CR>", desc = "Open Oil" },
 }
 
 M.gitsigns = {
-	["<leader>g"] = {
-		name = "Git",
-		b = { "<cmd>lua require('gitsigns').blame_line()<CR>", "Toggle Blame" },
-		d = { "<cmd>lua require('gitsigns').toggle_deleted()<CR>", "Diff" }, 
-		p = { "<cmd>lua require('gitsigns').preview_hunk()<CR>", "Preview Hunk" },
-		D = { "<cmd>lua require('gitsigns').diffthis()<CR>", "Diff" },
-		R = {
-			name = "Reset",
-			b = { "<cmd>lua require('gitsigns').reset_buffer()<CR>", "Reset Buffer" },
-			h = { "<cmd>lua require('gitsigns').reset_hunk()<CR>", "Reset Hunk" },
-		},
-		S = {
-			name = "Stage",
-			b = { "<cmd>lua require('gitsigns').stage_buffer()<CR>", "Stage Buffer" },
-			h = { "<cmd>lua require('gitsigns').stage_hunk()<CR>", "Stage Hunk" },
-		},
-	},
+	{ "<leader>g", group = "Git" },
+	{ "<leader>gD", "<cmd>lua require('gitsigns').diffthis()<CR>", desc = "Diff" },
+	{ "<leader>gR", group = "Reset" },
+	{ "<leader>gRb", "<cmd>lua require('gitsigns').reset_buffer()<CR>", desc = "Reset Buffer" },
+	{ "<leader>gRh", "<cmd>lua require('gitsigns').reset_hunk()<CR>", desc = "Reset Hunk" },
+	{ "<leader>gS", group = "Stage" },
+	{ "<leader>gSb", "<cmd>lua require('gitsigns').stage_buffer()<CR>", desc = "Stage Buffer" },
+	{ "<leader>gSh", "<cmd>lua require('gitsigns').stage_hunk()<CR>", desc = "Stage Hunk" },
+	{ "<leader>gb", "<cmd>lua require('gitsigns').blame_line()<CR>", desc = "Toggle Blame" },
+	{ "<leader>gd", "<cmd>lua require('gitsigns').toggle_deleted()<CR>", desc = "Diff" },
+	{ "<leader>gp", "<cmd>lua require('gitsigns').preview_hunk()<CR>", desc = "Preview Hunk" },
 }
 
 return M

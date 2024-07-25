@@ -8,7 +8,7 @@ end
 
 vim.api.nvim_create_user_command('LazyGit', _toggle_lazygit, {});
 
-wk.register(mapping.LazyGit)
+wk.add(mapping.LazyGit)
 
 if vim.g.neovide then
 	vim.g.guifont = "JetBrainsMono Nerd Font:h12"

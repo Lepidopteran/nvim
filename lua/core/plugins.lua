@@ -8,7 +8,7 @@ local plugins = {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("oil").setup({})
-			require("which-key").register(mapping.oil)
+			require("which-key").add(mapping.oil)
 		end,
 	},
 	{
@@ -20,7 +20,7 @@ local plugins = {
 		},
 		config = function()
 			require("nvim-tree").setup({})
-			require("which-key").register(mapping.nvim_tree)
+			require("which-key").add(mapping.nvim_tree)
 		end,
 	},
 
@@ -34,7 +34,7 @@ local plugins = {
 		},
 		config = function()
 			require("telescope").setup({})
-			require("which-key").register(mapping.telescope)
+			require("which-key").add(mapping.telescope)
 		end,
 	},
 	{
@@ -78,7 +78,6 @@ local plugins = {
 	},
 	{
 		"folke/trouble.nvim",
-		branch = "dev",
 		command = { "Trouble" },
 		keys = {
 			{
@@ -149,7 +148,7 @@ local plugins = {
 		"neovim/nvim-lspconfig",
 		event = "BufReadPre",
 		config = function()
-			require("which-key").register(mapping.lsp)
+			require("which-key").add(mapping.lsp)
 			require("core.configs.lsp_config")
 		end,
 
@@ -199,8 +198,21 @@ local plugins = {
 				},
 			})
 
-			require("which-key").register(mapping.formatter)
+			require("which-key").add(mapping.formatter)
 		end,
+	},
+
+	-- Debugging
+
+	{
+		"mfussenegger/nvim-dap",
+		event = "BufReadPre",
+		config = function()
+			require("dap").adapters.cpp = {
+				type = "executable",
+				command = "lldb-vscode",
+			}
+		end
 	},
 
 	-- Git Related
@@ -210,6 +222,7 @@ local plugins = {
 		event = "BufReadPre",
 		config = function()
 			require("gitsigns").setup()
+			require("which-key").add(mapping.gitsigns)
 		end,
 	},
 
@@ -288,14 +301,22 @@ local plugins = {
 		end,
 	},
 	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
+"folke/which-key.nvim",
+  event = "VeryLazy",
+  opts = {},
+  keys = {
+    {
+      "<leader>?",
+      function()
+        require("which-key").show({ global = false })
+      end,
+      desc = "Buffer Local Keymaps (which-key)",
+    },
+  },
 		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-
-			wk.register(mapping.general)
-			wk.register(mapping.buffer)
+			local wk = require("which-key")
+			wk.add(mapping.general)
+			wk.add(mapping.buffer)
 		end,
 	},
 }

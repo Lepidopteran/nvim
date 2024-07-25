@@ -1,46 +1,41 @@
 local M = {}
 
 M.IconPicker = {
-	["<Leader>I"] = {
-		name = "Icon Picker",
-		I = { "<cmd>IconPickerInsert<cr>", "Insert Icon" },
-		i = { "<cmd>IconPickerNormal<cr>", "Open Icon Picker" },
-		y = { "<cmd>IconPickerYank<cr>", "Yank the selected icon into register" },
-	},
+	{ "<leader>I", group = "Icon Picker"},
+	{ "<leader>Ii", "<cmd>IconPickerNormal<CR>", desc = "Open Icon Picker" },
+	{ "<leader>Iy", "<cmd>IconPickerYank<CR>", desc = "Yank the selected icon into register" },
+	{ "<leader>II", "<cmd>IconPickerInsert<CR>", desc = "Insert Icon" },
 }
 
 M.ChatGPT = {
-	["<leader>c"] = {
-		name = "ChatGPT",
-		c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
-		e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
-		g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
-		t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
-		k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
-		d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
-		a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
-		o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
-		s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
-		f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
-		x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
-		r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
-		l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
-	},
+	{ "<leader>c", group = "ChatGPT"},
+	{ "<leader>cc", "<cmd>ChatGPT<CR>", desc="ChatGPT"},
+	{
+		mode = {"n", "v"},
+		{ "<leader>ce", "<cmd>ChatGPTEditWithInstruction<CR>", desc="Edit with instruction"},
+		{ "<leader>cg", "<cmd>ChatGPTRun grammar_correction<CR>", desc="Grammar Correction"},
+		{ "<leader>ct", "<cmd>ChatGPTRun translate<CR>", desc="Translate"},
+		{ "<leader>ck", "<cmd>ChatGPTRun keywords<CR>", desc="Keywords"},
+		{ "<leader>cd", "<cmd>ChatGPTRun docstring<CR>", desc="Docstring"},
+		{ "<leader>ca", "<cmd>ChatGPTRun add_tests<CR>", desc="Add Tests"},
+		{ "<leader>co", "<cmd>ChatGPTRun optimize_code<CR>", desc="Optimize Code"},
+		{ "<leader>cs", "<cmd>ChatGPTRun summarize<CR>", desc="Summarize"},
+		{ "<leader>cf", "<cmd>ChatGPTRun fix_bugs<CR>", desc="Fix Bugs"},
+		{ "<leader>cx", "<cmd>ChatGPTRun explain_code<CR>", desc="Explain Code"},
+		{ "<leader>cr", "<cmd>ChatGPTRun roxygen_edit<CR>", desc="Roxygen Edit"},
+		{ "<leader>cl", "<cmd>ChatGPTRun code_readability_analysis<CR>", desc="Code Readability Analysis"},
+	}
 }
 
 M.LazyGit = {
-	["<leader>g"] = {
-		name = "Git",
-		i = { "<cmd>LazyGit<CR>", "LazyGit" },
-	},
+  { "<leader>g", group = "Git" },
+  { "<leader>gi", "<cmd>LazyGit<CR>", desc = "LazyGit" },
 }
 
 M.ZenMode = {
-	["<leader>z"] = {
-		name = "Zen Mode",
-		z = { "<cmd>ZenMode<CR>", "Toggle Zen Mode" },
-		t = { "<cmd>Twilight<CR>", "Toggle Twilight" },
-	},
+	{ "<leader>z", group = "Zen Mode" },
+	{ "<leader>zz", "<cmd>ZenMode<CR>", desc = "Toggle Zen Mode" },
+	{ "<leader>zt", "<cmd>Twilight<CR>", desc = "Toggle Twilight" },
 }
 
 return M

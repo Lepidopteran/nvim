@@ -30,7 +30,7 @@ local plugins = {
 	{
 		"folke/which-key.nvim",
 		config = function()
-			wk.register(mapping.ZenMode)
+			wk.add(mapping.ZenMode)
 		end,
 	},
 	{
@@ -67,7 +67,7 @@ local plugins = {
 				api_key_cmd = "bw get notes chatgpt.nvim --raw",
 			})
 
-			wk.register(mapping.ChatGPT)
+			wk.add(mapping.ChatGPT)
 		end,
 		dependencies = {
 			"MunifTanjim/nui.nvim",
@@ -99,10 +99,7 @@ local plugins = {
 		event = "BufEnter",
 		config = function()
 			require("icon-picker").setup({ disable_legacy_commands = true })
-			wk.register(mapping.IconPicker, {
-				noremap = true,
-				silent = true,
-			})
+			wk.add(mapping.IconPicker)
 		end,
 	},
 	{

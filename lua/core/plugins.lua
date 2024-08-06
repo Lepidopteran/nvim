@@ -191,9 +191,9 @@ local plugins = {
 				},
 				formatters_by_ft = {
 					lua = { "stylua" },
-					javascript = { { "biome", "deno_fmt", "prettier" } },
-					typescript = { { "biome", "deno_fmt", "prettier" } },
-					html = { { "html_custom", "prettier" } },
+					javascript = { "biome", "deno_fmt", "prettier" },
+					typescript = { "biome", "deno_fmt", "prettier" },
+					html = { "html_custom", "prettier" },
 					css = { "prettier" },
 				},
 			})

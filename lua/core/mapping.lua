@@ -14,6 +14,43 @@ M.general = {
 	{ "p", "P", desc = "Paste without yanking", mode = "x" },
 }
 
+M.trouble = {
+	{
+		"<leader>t",
+		group = "Trouble",
+	},
+	{
+		"<leader>tt",
+		"<cmd>Trouble diagnostics toggle<cr>",
+		desc = "Diagnostics (Trouble)",
+	},
+	{
+		"<leader>tT",
+		"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+		desc = "Buffer Diagnostics (Trouble)",
+	},
+	{
+		"<leader>ts",
+		"<cmd>Trouble symbols toggle focus=false<cr>",
+		desc = "Symbols (Trouble)",
+	},
+	{
+		"<leader>tl",
+		"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+		desc = "LSP Definitions / references / ... (Trouble)",
+	},
+	{
+		"<leader>tL",
+		"<cmd>Trouble loclist toggle<cr>",
+		desc = "Location List (Trouble)",
+	},
+	{
+		"<leader>tQ",
+		"<cmd>Trouble qflist toggle<cr>",
+		desc = "Quickfix List (Trouble)",
+	},
+}
+
 M.telescope = {
 	{ "<leader>f", group = "Telescope" },
 	{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find Files" },
@@ -42,7 +79,7 @@ M.telescope = {
 		{ "<leader>frs", "<cmd>Telescope git_status<CR>", desc = "Status" },
 		{ "<leader>frf", "<cmd>Telescope git_files<CR>", desc = "Files" },
 		{ "<leader>ft", "<cmd>Telescope treesitter<CR>", desc = "Treesitter" },
-	}
+	},
 }
 
 M.buffer = {

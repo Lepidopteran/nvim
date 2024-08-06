@@ -4,7 +4,6 @@ M.IconPicker = {
 	{ "<leader>I", group = "Icon Picker"},
 	{ "<leader>Ii", "<cmd>IconPickerNormal<CR>", desc = "Open Icon Picker" },
 	{ "<leader>Iy", "<cmd>IconPickerYank<CR>", desc = "Yank the selected icon into register" },
-	{ "<C-I>", "<cmd>IconPickerInsert<CR>", desc = "Insert Icon", mode = "i" },
 }
 
 M.ChatGPT = {

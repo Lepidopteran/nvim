@@ -252,6 +252,11 @@ local plugins = {
 		end,
 	},
 	{
+			"lukas-reineke/indent-blankline.nvim",
+			main = "ibl",
+			opts = {},
+	},
+	{
 		"windwp/nvim-ts-autotag",
 		event = "InsertEnter",
 		config = function()

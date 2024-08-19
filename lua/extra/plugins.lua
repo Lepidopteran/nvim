@@ -65,6 +65,14 @@ local plugins = {
 		config = function()
 			require("chatgpt").setup({
 				api_key_cmd = "bw get notes chatgpt.nvim --raw",
+				openai_params = {
+					model = "gpt-4o-mini",
+					max_tokens = 1024,
+				},
+				openai_edit_params = {
+					model = "gpt-3.5-turbo",
+					max_tokens = 2048,
+				},
 			})
 
 			wk.add(mapping.ChatGPT)
@@ -77,13 +85,16 @@ local plugins = {
 		},
 	},
 	{
-		"zbirenbaum/copilot.lua",
-		event = "InsertEnter",
-		opts = {
-			suggestion = {
-				auto_trigger = true,
-			},
-		},
+		'Exafunction/codeium.vim',
+		event = 'BufEnter',
+		config = function()
+			vim.g.codeium_disable_bindings = 1
+			vim.keymap.set('i', '<M-l>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+			vim.keymap.set('i', '<M-Bslash>', function () return vim.fn['codeium#Complete']() end, { expr = true, silent = true })
+			vim.keymap.set('i', '<M-k>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
+			vim.keymap.set('i', '<M-j>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
+			vim.keymap.set('i', '<M-/>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
+		end	
 	},
 	{
 		"brenoprata10/nvim-highlight-colors",

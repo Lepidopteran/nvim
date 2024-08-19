@@ -7,8 +7,12 @@ M.IconPicker = {
 }
 
 M.ChatGPT = {
-	{ "<leader>c", group = "ChatGPT"},
-	{ "<leader>cc", "<cmd>ChatGPT<CR>", desc="ChatGPT"},
+	icon = {
+		icon = "󰧑",
+		color = "blue",
+		name = "Artificial Intelligence",
+	},
+	{ "<leader>c", group = "Artificial Intelligence" },
 	{
 		mode = {"n", "v"},
 		{ "<leader>ce", "<cmd>ChatGPTEditWithInstruction<CR>", desc="Edit with instruction"},
@@ -24,6 +28,16 @@ M.ChatGPT = {
 		{ "<leader>cr", "<cmd>ChatGPTRun roxygen_edit<CR>", desc="Roxygen Edit"},
 		{ "<leader>cl", "<cmd>ChatGPTRun code_readability_analysis<CR>", desc="Code Readability Analysis"},
 	}
+}
+
+M.Chats = {
+	icon = {
+		icon = "󰭹",
+		name = "Chats",
+	},
+	{ "<leader>cc", group = "Chats" },
+	{ "<leader>ccc", "<cmd>ChatGPT<CR>", desc="ChatGPT"},
+	{ "<leader>ccC", function() return vim.fn["codeium#Chat"]() end, desc="Chat with codeium" },
 }
 
 M.LazyGit = {

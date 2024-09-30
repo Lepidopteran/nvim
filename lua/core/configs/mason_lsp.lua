@@ -14,7 +14,7 @@ local M = {
 		"biome",
 		"html",
 		"cssls",
-		"tsserver",
+		"ts_ls",
 		"tailwindcss",
 		"astro",
 		"svelte",

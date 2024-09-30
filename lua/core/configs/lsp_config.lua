@@ -18,7 +18,7 @@ end
 
 -- TypeScript LSP
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
 	settings = {
 		implicitProjectConfiguration = {
 			checkJs = true,

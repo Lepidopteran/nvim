@@ -162,6 +162,7 @@ local plugins = {
 					lua = { "stylua" },
 					javascript = { "biome", "deno_fmt", "prettier" },
 					typescript = { "biome", "deno_fmt", "prettier" },
+					astro = { "biome", "prettier" },
 					html = { "html_custom", "prettier" },
 					css = { "prettier" },
 				},

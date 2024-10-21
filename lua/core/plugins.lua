@@ -163,6 +163,7 @@ local plugins = {
 					javascript = { "biome", "deno_fmt", "prettier" },
 					typescript = { "biome", "deno_fmt", "prettier" },
 					astro = { "biome", "prettier" },
+					rust = { "rustfmt" },
 					html = { "html_custom", "prettier" },
 					css = { "prettier" },
 				},

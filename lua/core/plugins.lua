@@ -165,9 +165,12 @@ local plugins = {
 					astro = { "biome", "prettier" },
 					svelte = { "biome", "prettier" },
 					json = { "biome", "deno_fmt", "prettier" },
+					jsonc = { "biome", "deno_fmt", "prettier" },
 					rust = { "rustfmt" },
 					html = { "html_custom", "prettier" },
 					css = { "prettier" },
+					cpp = { "clang-format" },
+					c = { "clang-format" },
 				},
 			})
 

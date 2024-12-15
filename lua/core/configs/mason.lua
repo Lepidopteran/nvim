@@ -5,6 +5,7 @@ local M = {
 		"biome",
 		"prettier",
 		"prettierd",
+		"clang-format",
 	},
 }
 

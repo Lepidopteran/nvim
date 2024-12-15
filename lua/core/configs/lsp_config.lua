@@ -7,9 +7,9 @@ local servers = {
 	"tailwindcss",
 	"lua_ls",
 	"pyright",
-	"rust_analyzer",
 	"astro",
 	"svelte",
+	"clangd",
 }
 
 for _, lsp in ipairs(servers) do
@@ -33,6 +33,20 @@ lspconfig.typos_lsp.setup({
 		diagnosticSeverity = "hint",
 	},
 })
+
+-- Rust Analyzer
+	lspconfig.rust_analyzer.setup({
+		settings = {
+			["rust-analyzer"] = {
+				check = {
+					command = "clippy",
+				},
+				diagnostics = {
+					enable = true,
+				},
+			},
+		},
+	})
 
 local signs = {
 	Error = " ",

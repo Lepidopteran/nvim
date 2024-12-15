@@ -19,6 +19,9 @@ local M = {
 		"astro",
 		"svelte",
 
+		-- C/C++
+		"clangd",
+
     -- Rust
     "rust_analyzer",
 

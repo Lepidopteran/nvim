@@ -10,6 +10,7 @@ local servers = {
 	"astro",
 	"svelte",
 	"clangd",
+	"gdscript",
 }
 
 for _, lsp in ipairs(servers) do

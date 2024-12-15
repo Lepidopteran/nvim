@@ -7,6 +7,9 @@ local _toggle_lazygit = function()
 end
 
 vim.api.nvim_create_user_command('LazyGit', _toggle_lazygit, {});
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
 
 wk.add(mapping.LazyGit)
 wk.add(mapping.Chats)

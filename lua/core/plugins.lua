@@ -116,14 +116,15 @@ local plugins = {
 	{
 		"neovim/nvim-lspconfig",
 		event = "BufReadPre",
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+			"saghen/blink.cmp",
+		},
+
 		config = function()
 			require("which-key").add(mapping.lsp)
 			require("core.configs.lsp_config")
 		end,
-
-		dependencies = {
-			"williamboman/mason-lspconfig.nvim",
-		},
 	},
 	{
 		"L3MON4D3/LuaSnip",
@@ -131,19 +132,26 @@ local plugins = {
 		build = "make install_jsregexp",
 	},
 	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"saadparwaiz1/cmp_luasnip",
-			"rafamadriz/friendly-snippets",
+		"saghen/blink.cmp",
+		lazy = false,
+		dependencies = "rafamadriz/friendly-snippets",
+		version = "v0.*",
+		opts = {
+			keymap = {
+				preset = "enter",
+				['<C-k>'] = { 'select_prev', 'fallback' },
+				['<C-j>'] = { 'select_next', 'fallback' },
+			},
+			sources = {
+				default = { "lsp", "path", "snippets", "buffer" },
+			},
+			completion = {
+				list = {
+					selection = "manual",
+				}
+			}
 		},
-		config = function()
-			require("core.configs.nvim-cmp")
-		end,
+		opts_extend = { "sources.default" },
 	},
 	{
 		"stevearc/conform.nvim",
@@ -239,9 +247,9 @@ local plugins = {
 		end,
 	},
 	{
-			"lukas-reineke/indent-blankline.nvim",
-			main = "ibl",
-			opts = {},
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
 	},
 	{
 		"windwp/nvim-ts-autotag",

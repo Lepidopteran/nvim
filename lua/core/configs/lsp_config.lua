@@ -1,5 +1,8 @@
 local lspconfig = require("lspconfig")
+local blink = require("blink.cmp")
+local capabilities = blink.get_lsp_capabilities()
 
+-- Setup lsp servers
 local servers = {
 	"biome",
 	"html",
@@ -14,29 +17,31 @@ local servers = {
 }
 
 for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({})
+    lspconfig[lsp].setup({
+        capabilities = capabilities,
+    })
 end
 
--- TypeScript LSP
-
-lspconfig.ts_ls.setup({
-	settings = {
-		implicitProjectConfiguration = {
-			checkJs = true,
+-- Setup lsp servers with configs
+local servers_with_configs = {
+	-- TS
+	ts_ls = {
+		settings = {
+			implicitProjectConfiguration = {
+				checkJs = true,
+			},
 		},
 	},
-})
 
--- Typos LSP
-
-lspconfig.typos_lsp.setup({
-	init_options = {
-		diagnosticSeverity = "hint",
+	-- Spelling
+	typos_lsp = {
+		init_options = {
+			diagnosticSeverity = "hint",
+		},
 	},
-})
 
--- Rust Analyzer
-	lspconfig.rust_analyzer.setup({
+	-- Rust
+	rust_analyzer = {
 		settings = {
 			["rust-analyzer"] = {
 				check = {
@@ -47,8 +52,15 @@ lspconfig.typos_lsp.setup({
 				},
 			},
 		},
-	})
+	},
+}
 
+for server, config in pairs(servers_with_configs) do
+	config.capabilities = blink.get_lsp_capabilities(config.capabilities)
+	lspconfig[server].setup(config)
+end
+
+-- Setup lsp diagnostics signs
 local signs = {
 	Error = " ",
 	Warn = " ",

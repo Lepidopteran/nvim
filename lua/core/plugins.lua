@@ -150,29 +150,9 @@ local plugins = {
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local conform = require("conform")
+			local config = require("core.configs.formatting")
 
-			conform.setup({
-				formatters = {
-					html_custom = {
-						command = "prettier",
-						args = { "--parser", "html" },
-					},
-				},
-				formatters_by_ft = {
-					lua = { "stylua" },
-					javascript = { "biome", "deno_fmt", "prettier" },
-					typescript = { "biome", "deno_fmt", "prettier" },
-					astro = { "biome", "prettier" },
-					svelte = { "biome", "prettier" },
-					json = { "biome", "deno_fmt", "prettier" },
-					jsonc = { "biome", "deno_fmt", "prettier" },
-					rust = { "rustfmt" },
-					html = { "html_custom", "prettier" },
-					css = { "prettier" },
-					cpp = { "clang-format" },
-					c = { "clang-format" },
-				},
-			})
+			conform.setup(config)
 
 			require("which-key").add(mapping.formatter)
 		end,

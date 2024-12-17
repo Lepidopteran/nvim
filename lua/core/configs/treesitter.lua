@@ -1,23 +1,38 @@
 local M = {
 	ensure_installed = {
+		-- Web Development
 		"astro",
-		"bash",
 		"css",
-		"dockerfile",
 		"html",
 		"javascript",
-		"json",
+		"svelte",
+		"typescript",
+		"vue",
+
+		-- Scripting and Programming Languages
+		"bash",
 		"lua",
-		"markdown",
 		"python",
 		"rust",
-		"svelte",
+		"gdscript",
+		"c",
+		"cpp",
+
+		-- Markup and Configuration
+		"dockerfile",
+		"json",
+		"jsonc",
+		"markdown",
 		"toml",
-		"typescript",
+		"yaml",
+
+		-- Editor Specific
 		"vim",
 		"vimdoc",
-		"vue",
-		"yaml",
+
+		-- Shading and Rendering
+		"gdshader",
+
 	},
 	highlight = {
 		enable = true,

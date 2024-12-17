@@ -6,6 +6,7 @@ local M = {
 		"prettier",
 		"prettierd",
 		"clang-format",
+		"sqlfluff",
 	},
 }
 

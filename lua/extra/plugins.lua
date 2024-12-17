@@ -13,7 +13,6 @@ local plugins = {
 			local config = require("extra.configs.notify")
 			require("notify").setup(config)
 		end,
-
 	},
 	{
 		"folke/noice.nvim",
@@ -45,7 +44,6 @@ local plugins = {
 					width = 0.85,
 				},
 			})
-
 		end,
 
 		cmd = "ZenMode",
@@ -85,16 +83,26 @@ local plugins = {
 		},
 	},
 	{
-		'Exafunction/codeium.vim',
-		event = 'BufEnter',
+		"Exafunction/codeium.vim",
+		event = "BufEnter",
 		config = function()
 			vim.g.codeium_disable_bindings = 1
-			vim.keymap.set('i', '<M-l>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
-			vim.keymap.set('i', '<M-Bslash>', function () return vim.fn['codeium#Complete']() end, { expr = true, silent = true })
-			vim.keymap.set('i', '<M-k>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
-			vim.keymap.set('i', '<M-j>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
-			vim.keymap.set('i', '<M-/>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
-		end	
+			vim.keymap.set("i", "<M-l>", function()
+				return vim.fn["codeium#Accept"]()
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<M-Bslash>", function()
+				return vim.fn["codeium#Complete"]()
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<M-k>", function()
+				return vim.fn["codeium#CycleCompletions"](1)
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<M-j>", function()
+				return vim.fn["codeium#CycleCompletions"](-1)
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<M-/>", function()
+				return vim.fn["codeium#Clear"]()
+			end, { expr = true, silent = true })
+		end,
 	},
 	{
 		"brenoprata10/nvim-highlight-colors",
@@ -138,8 +146,35 @@ local plugins = {
 					name = "work",
 					path = "~/Obsidian/Work",
 				},
-			}
-		}
+			},
+		},
+	},
+	{
+		"kristijanhusak/vim-dadbod-ui",
+		dependencies = {
+			{ "tpope/vim-dadbod", lazy = true },
+			{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+		},
+		cmd = {
+			"DBUI",
+			"DBUIToggle",
+			"DBUIAddConnection",
+			"DBUIFindBuffer",
+		},
+		init = function()
+			vim.g.db_ui_use_nerd_fonts = 1
+		end,
+	},
+	{
+		"saghen/blink.cmp",
+		opts = {
+			sources = {
+				default = { "dadbod" },
+				providers = {
+					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+				},
+			},
+		},
 	},
 }
 

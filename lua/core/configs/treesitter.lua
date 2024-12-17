@@ -33,6 +33,8 @@ local M = {
 		-- Shading and Rendering
 		"gdshader",
 
+		-- Sql
+		"sql",
 	},
 	highlight = {
 		enable = true,

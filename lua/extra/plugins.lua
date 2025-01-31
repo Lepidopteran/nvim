@@ -122,14 +122,6 @@ local plugins = {
 		end,
 	},
 	{
-		"kkoomen/vim-doge",
-		cmd = { "DogeGenerate", "DogeCreateDocStandard" },
-		ft = { "python", "javascript", "typescript", "rust", "go", "lua", "c", "cpp", "java", "html" },
-		build = function()
-			vim.cmd("call doge#install()")
-		end,
-	},
-	{
 		"epwalsh/obsidian.nvim",
 		lazy = true,
 		ft = { "markdown" },

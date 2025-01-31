@@ -17,9 +17,9 @@ local servers = {
 }
 
 for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup({
-        capabilities = capabilities,
-    })
+	lspconfig[lsp].setup({
+		capabilities = capabilities,
+	})
 end
 
 -- Setup lsp servers with configs
@@ -29,6 +29,25 @@ local servers_with_configs = {
 		settings = {
 			implicitProjectConfiguration = {
 				checkJs = true,
+			},
+		},
+	},
+
+	-- Svelte
+	svelte = {
+		-- Typescript fix
+		on_attach = function(client, bufnr)
+			vim.api.nvim_create_autocmd("BufWritePost", {
+				pattern = { "*.js", "*.ts" },
+				group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
+				callback = function(ctx)
+					client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+				end,
+			})
+		end,
+		capabilities = {
+			workspace = {
+				didChangeWatchedFiles = vim.fn.has("nvim-0.10") == 0 and { dynamicRegistration = true },
 			},
 		},
 	},

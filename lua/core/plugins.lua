@@ -154,6 +154,13 @@ local plugins = {
 		opts_extend = { "sources.default" },
 	},
 	{
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+	},
+	{
 		"stevearc/conform.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
@@ -269,6 +276,7 @@ local plugins = {
 			require("nvim-autopairs").setup({})
 		end,
 	},
+
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",

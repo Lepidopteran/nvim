@@ -1,31 +1,7 @@
 local mapping = require("extra.mapping")
-wk = require("which-key")
+local wk = require("which-key")
 
 local plugins = {
-	{
-		"stevearc/dressing.nvim",
-		opts = {},
-	},
-	{
-		"rcarriga/nvim-notify",
-		event = "VeryLazy",
-		config = function()
-			local config = require("extra.configs.notify")
-			require("notify").setup(config)
-		end,
-	},
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		config = function()
-			local config = require("extra.configs.noice")
-			require("noice").setup(config)
-		end,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"rcarriga/nvim-notify",
-		},
-	},
 	{
 		"folke/which-key.nvim",
 		config = function()

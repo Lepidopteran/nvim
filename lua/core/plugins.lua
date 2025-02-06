@@ -198,7 +198,31 @@ local plugins = {
 	},
 
 	-- User Interface
-
+	
+	{
+		"stevearc/dressing.nvim",
+		opts = {},
+	},
+	{
+		"rcarriga/nvim-notify",
+		event = "VeryLazy",
+		config = function()
+			local config = require("core.configs.notify")
+			require("notify").setup(config)
+		end,
+	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		config = function()
+			local config = require("core.configs.noice")
+			require("noice").setup(config)
+		end,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"rcarriga/nvim-notify",
+		},
+	},
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },

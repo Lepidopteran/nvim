@@ -172,6 +172,33 @@ local plugins = {
 			},
 		},
 	},
+
+	-- Blender Addon Development
+
+	{
+		"b0o/blender.nvim",
+		config = function()
+			require("blender").setup({
+				profiles = {
+					{
+						name = "default",
+						cmd = {"blender-addon-dev"},
+						enable_dap = false,
+					},
+				},
+				dap = {
+					enabled = false,
+				}
+			})
+		end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"grapp-dev/nui-components.nvim",
+			"mfussenegger/nvim-dap", -- Optional, for debugging with DAP
+			"LiadOz/nvim-dap-repl-highlights", -- Optional, for syntax highlighting in the DAP REPL
+		},
+	},
+
 }
 
 return plugins

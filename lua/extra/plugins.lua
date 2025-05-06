@@ -3,12 +3,6 @@ local wk = require("which-key")
 
 local plugins = {
 	{
-		"folke/which-key.nvim",
-		config = function()
-			wk.add(mapping.ZenMode)
-		end,
-	},
-	{
 		"folke/twilight.nvim",
 		cmd = "Twilight",
 	},
@@ -23,6 +17,12 @@ local plugins = {
 		end,
 
 		cmd = "ZenMode",
+	},
+	{
+		"folke/which-key.nvim",
+		config = function()
+			wk.add(mapping.ZenMode)
+		end,
 	},
 	{
 		"iamcco/markdown-preview.nvim",

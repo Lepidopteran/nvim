@@ -19,7 +19,6 @@ if string.match(vim.fn.getcwd(), "[.]nvim$") then
 end
 
 wk.add(mapping.LazyGit)
-wk.add(mapping.Chats)
 
 if vim.g.neovide then
 	vim.g.guifont = "JetBrainsMono Nerd Font:h12"

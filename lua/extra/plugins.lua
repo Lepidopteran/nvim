@@ -24,6 +24,9 @@ local plugins = {
 			wk.add(mapping.ZenMode)
 		end,
 	},
+
+	-- Markdown
+
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

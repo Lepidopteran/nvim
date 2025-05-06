@@ -2,6 +2,8 @@ local mapping = require("extra.mapping")
 local wk = require("which-key")
 
 local plugins = {
+
+	-- UI
 	{
 		"folke/twilight.nvim",
 		cmd = "Twilight",
@@ -74,9 +76,8 @@ local plugins = {
 			"stevearc/dressing.nvim",
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
-			"nvim-telescope/telescope.nvim",
 			"ibhagwan/fzf-lua",
-			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+			"echasnovski/mini.icons", 
 			{
 				-- support for image pasting
 				"HakonHarnes/img-clip.nvim",
@@ -177,13 +178,13 @@ local plugins = {
 				profiles = {
 					{
 						name = "default",
-						cmd = {"blender-addon-dev"},
+						cmd = { "blender-addon-dev" },
 						enable_dap = false,
 					},
 				},
 				dap = {
 					enabled = false,
-				}
+				},
 			})
 		end,
 		dependencies = {

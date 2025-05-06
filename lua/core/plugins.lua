@@ -15,29 +15,14 @@ local plugins = {
 	-- Utilities
 
 	{
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.6",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
+		"ibhagwan/fzf-lua",
+		dependencies = { "echasnovski/mini.icons" },
 		config = function()
-			require("telescope").setup({})
-			require("which-key").add(mapping.telescope)
+			require("which-key").add(mapping.fzf_lua)	
 		end,
+		opts = {},
 	},
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-		init = function()
-			require("telescope").load_extension("fzf")
-		end,
-	},
-	{
-		"nvim-telescope/telescope-frecency.nvim",
-		config = function()
-			require("telescope").load_extension("frecency")
-		end,
-	},
+
 	{
 		"akinsho/toggleterm.nvim",
 		event = "VeryLazy",
@@ -268,13 +253,13 @@ local plugins = {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-    ---@module "ibl"
-    ---@type ibl.config
+		---@module "ibl"
+		---@type ibl.config
 		opts = {
 			exclude = {
 				filetypes = {
 					"dashboard",
-				}
+				},
 			},
 		},
 	},

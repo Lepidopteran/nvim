@@ -5,22 +5,10 @@ local plugins = {
 
 	{
 		"stevearc/oil.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		dependencies = { "echasnovski/mini.icons" },
 		config = function()
 			require("oil").setup({})
 			require("which-key").add(mapping.oil)
-		end,
-	},
-	{
-		"nvim-tree/nvim-tree.lua",
-		version = "*",
-		lazy = false,
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("nvim-tree").setup({})
-			require("which-key").add(mapping.nvim_tree)
 		end,
 	},
 
@@ -154,11 +142,11 @@ local plugins = {
 		opts_extend = { "sources.default" },
 	},
 	{
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {},
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
 	},
 	{
 		"stevearc/conform.nvim",
@@ -198,7 +186,7 @@ local plugins = {
 	},
 
 	-- User Interface
-	
+
 	{
 		"stevearc/dressing.nvim",
 		opts = {},
@@ -280,7 +268,15 @@ local plugins = {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		opts = {},
+    ---@module "ibl"
+    ---@type ibl.config
+		opts = {
+			exclude = {
+				filetypes = {
+					"dashboard",
+				}
+			},
+		},
 	},
 	{
 		"windwp/nvim-ts-autotag",

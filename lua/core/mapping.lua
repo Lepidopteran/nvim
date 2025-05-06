@@ -96,13 +96,6 @@ M.buffer = {
 	},
 }
 
-M.nvim_tree = {
-	{ "<leader>e", group = "file" },
-	{ "<leader>ee", "<cmd>NvimTreeToggle<CR>", desc = "Toggle" },
-	{ "<leader>er", "<cmd>NvimTreeRefresh<CR>", desc = "Refresh" },
-	{ "<leader>ef", "<cmd>NvimTreeFindFile<CR>", desc = "Find File" },
-}
-
 M.lsp = {
 	{ "<leader>l", group = "lsp" },
 	{ "<leader>lK", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Hover" },

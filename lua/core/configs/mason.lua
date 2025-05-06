@@ -7,6 +7,7 @@ local M = {
 		"prettierd",
 		"clang-format",
 		"sqlfluff",
+		"xmlformatter",
 	},
 }
 

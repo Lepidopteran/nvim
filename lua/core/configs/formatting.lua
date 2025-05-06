@@ -12,6 +12,7 @@ M.formatters_by_ft = {
 	css = { "prettier" },
 	cpp = { "clang-format" },
 	c = { "clang-format" },
+	xml = { "xmlformatter" },
 }
 
 return M

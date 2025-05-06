@@ -127,17 +127,17 @@ local plugins = {
 		opts = {
 			keymap = {
 				preset = "enter",
-				['<C-k>'] = { 'select_prev', 'fallback' },
-				['<C-j>'] = { 'select_next', 'fallback' },
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
 			},
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
 			},
 			completion = {
 				list = {
-					selection = { preselect = false, auto_insert = false }
-				}
-			}
+					selection = { preselect = false, auto_insert = false },
+				},
+			},
 		},
 		opts_extend = { "sources.default" },
 	},

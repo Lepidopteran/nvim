@@ -98,7 +98,7 @@ M.buffer = {
 
 M.lsp = {
 	{ "<leader>l", group = "lsp" },
-	{ "<leader>lK", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Hover" },
+	{ "<leader>lk", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Hover" },
 	{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Action" },
 	{ "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to Definition" },
 	{ "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },

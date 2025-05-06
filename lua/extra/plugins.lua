@@ -35,6 +35,13 @@ local plugins = {
 	},
 	{
 		"jackMort/ChatGPT.nvim",
+	-- Screenshots
+
+	{
+		"mistricky/codesnap.nvim",
+		build = "make",
+	},
+
 		event = "VeryLazy",
 		config = function()
 			require("chatgpt").setup({

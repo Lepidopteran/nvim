@@ -42,27 +42,70 @@ local plugins = {
 		build = "make",
 	},
 
-		event = "VeryLazy",
-		config = function()
-			require("chatgpt").setup({
-				api_key_cmd = "bw get notes chatgpt.nvim --raw",
-				openai_params = {
-					model = "gpt-4o-mini",
-					max_tokens = 1024,
-				},
-				openai_edit_params = {
-					model = "gpt-3.5-turbo",
-					max_tokens = 2048,
-				},
-			})
+	-- AI Stuff
 
-			wk.add(mapping.ChatGPT)
-		end,
+	{
+		"yetone/avante.nvim",
+		event = "VeryLazy",
+		lazy = false,
+		version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+		opts = {
+			provider = "openai",
+			openai = {
+				endpoint = "https://api.openai.com/v1",
+				model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+				api_key_name = "cmd:bw get notes chatgpt.nvim --raw",
+				timeout = 30000, -- timeout in milliseconds
+				temperature = 0, -- adjust if needed
+				max_tokens = 4096,
+			},
+			vendors = {
+				mistral = {
+					__inherited_from = "openai",
+					api_key_name = "",
+					endpoint = "http://127.0.0.1:11434/v1",
+					model = "mistral",
+				},
+				["llama3.1"] = {
+					__inherited_from = "openai",
+					api_key_name = "",
+					endpoint = "http://127.0.0.1:11434/v1",
+					model = "llama3.1",
+				},
+			},
+		},
+		build = "make",
 		dependencies = {
-			"MunifTanjim/nui.nvim",
+			"stevearc/dressing.nvim",
 			"nvim-lua/plenary.nvim",
-			"folke/trouble.nvim",
+			"MunifTanjim/nui.nvim",
 			"nvim-telescope/telescope.nvim",
+			"ibhagwan/fzf-lua",
+			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+			{
+				-- support for image pasting
+				"HakonHarnes/img-clip.nvim",
+				event = "VeryLazy",
+				opts = {
+					-- recommended settings
+					default = {
+						embed_image_as_base64 = false,
+						prompt_for_file_name = false,
+						drag_and_drop = {
+							insert_mode = true,
+						},
+						-- required for Windows users
+						use_absolute_path = true,
+					},
+				},
+			},
+			{
+				"MeanderingProgrammer/render-markdown.nvim",
+				opts = {
+					file_types = { "markdown", "Avante" },
+				},
+				ft = { "markdown", "Avante" },
+			},
 		},
 	},
 	{

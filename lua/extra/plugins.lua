@@ -139,34 +139,9 @@ local plugins = {
 			})
 		end,
 	},
-	{
-		"ziontee113/icon-picker.nvim",
-		event = "BufEnter",
-		config = function()
-			require("icon-picker").setup({ disable_legacy_commands = true })
-			wk.add(mapping.IconPicker)
-		end,
-	},
-	{
-		"epwalsh/obsidian.nvim",
-		lazy = true,
-		ft = { "markdown" },
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		opts = {
-			workspaces = {
-				{
-					name = "personal",
-					path = "~/Obsidian/Personal",
-				},
-				{
-					name = "work",
-					path = "~/Obsidian/Work",
-				},
-			},
-		},
-	},
+
+	-- SQL Development
+
 	{
 		"kristijanhusak/vim-dadbod-ui",
 		dependencies = {

@@ -37,13 +37,6 @@ local plugins = {
 		ft = { "markdown" },
 	},
 
-	-- Screenshots
-
-	{
-		"mistricky/codesnap.nvim",
-		build = "make",
-	},
-
 	-- AI Stuff
 
 	{

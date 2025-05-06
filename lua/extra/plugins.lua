@@ -36,8 +36,7 @@ local plugins = {
 		end,
 		ft = { "markdown" },
 	},
-	{
-		"jackMort/ChatGPT.nvim",
+
 	-- Screenshots
 
 	{
@@ -133,6 +132,9 @@ local plugins = {
 			end, { expr = true, silent = true })
 		end,
 	},
+
+	-- Colors
+
 	{
 		"brenoprata10/nvim-highlight-colors",
 		event = "BufEnter",

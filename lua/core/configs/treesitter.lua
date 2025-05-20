@@ -3,6 +3,7 @@ local M = {
 		-- Web Development
 		"astro",
 		"css",
+		"scss",
 		"html",
 		"javascript",
 		"svelte",

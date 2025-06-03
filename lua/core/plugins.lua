@@ -18,7 +18,7 @@ local plugins = {
 		"ibhagwan/fzf-lua",
 		dependencies = { "echasnovski/mini.icons" },
 		config = function()
-			require("which-key").add(mapping.fzf_lua)	
+			require("which-key").add(mapping.fzf_lua)
 		end,
 		opts = {},
 	},
@@ -265,9 +265,15 @@ local plugins = {
 	},
 	{
 		"windwp/nvim-ts-autotag",
-		event = "InsertEnter",
+		event = "BufReadPre",
 		config = function()
-			require("nvim-ts-autotag").setup({})
+			require("nvim-ts-autotag").setup({
+				opts = {
+					enable_close = true,
+					enable_rename = true,
+					enable_close_on_slash = false,
+				},
+			})
 		end,
 	},
 	{

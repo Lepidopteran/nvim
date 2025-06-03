@@ -26,6 +26,7 @@ local M = {
 		"markdown",
 		"toml",
 		"yaml",
+		"xml",
 
 		-- Editor Specific
 		"vim",

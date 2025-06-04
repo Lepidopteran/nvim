@@ -79,12 +79,10 @@ local plugins = {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		dependencies = { "williamboman/mason.nvim" },
-		config = function()
-			local config = require("core.configs.mason_lsp")
-
-			require("mason-lspconfig").setup(config)
-		end,
+		opts = require("core.configs.mason_lsp"),
+		dependencies = {
+			"williamboman/mason.nvim", opts = require("core.configs.mason")
+		},
 	},
 	{
 		"neovim/nvim-lspconfig",

@@ -28,6 +28,7 @@ local M = {
 		-- Spelling
 		"typos_lsp",
 	},
+	automatic_enable = false,
 }
 
 return M

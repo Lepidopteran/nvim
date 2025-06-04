@@ -48,26 +48,16 @@ local plugins = {
 		version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
 		opts = {
 			provider = "openai",
-			openai = {
-				endpoint = "https://api.openai.com/v1",
-				model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-				api_key_name = "cmd:bw get notes chatgpt.nvim --raw",
-				timeout = 30000, -- timeout in milliseconds
-				temperature = 0, -- adjust if needed
-				max_tokens = 4096,
-			},
-			vendors = {
-				mistral = {
-					__inherited_from = "openai",
-					api_key_name = "",
-					endpoint = "http://127.0.0.1:11434/v1",
-					model = "mistral",
-				},
-				["llama3.1"] = {
-					__inherited_from = "openai",
-					api_key_name = "",
-					endpoint = "http://127.0.0.1:11434/v1",
-					model = "llama3.1",
+			providers = {
+				openai = {
+					endpoint = "https://api.openai.com/v1",
+					model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+					api_key_name = "cmd:bw get notes chatgpt.nvim --raw",
+					timeout = 30000, -- timeout in milliseconds
+					extra_request_body = {
+						temperature = 0, -- adjust if needed
+						max_tokens = 4096,
+					},
 				},
 			},
 		},
@@ -77,7 +67,7 @@ local plugins = {
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
 			"ibhagwan/fzf-lua",
-			"echasnovski/mini.icons", 
+			"echasnovski/mini.icons",
 			{
 				-- support for image pasting
 				"HakonHarnes/img-clip.nvim",

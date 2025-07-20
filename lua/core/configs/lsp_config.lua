@@ -13,6 +13,7 @@ local servers = {
 	"astro",
 	"svelte",
 	"clangd",
+	"jdtls",
 	"gdscript",
 }
 

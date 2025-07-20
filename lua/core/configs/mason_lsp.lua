@@ -19,6 +19,9 @@ local M = {
 		"astro",
 		"svelte",
 
+		-- Java
+		"jdtls",
+
 		-- C/C++
 		"clangd",
 

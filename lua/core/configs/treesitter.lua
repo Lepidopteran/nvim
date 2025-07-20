@@ -35,6 +35,9 @@ local M = {
 		-- Shading and Rendering
 		"gdshader",
 
+		-- Java
+		"java",
+
 		-- Sql
 		"sql",
 	},

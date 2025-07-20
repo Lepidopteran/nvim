@@ -52,7 +52,7 @@ local plugins = {
 				openai = {
 					endpoint = "https://api.openai.com/v1",
 					model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-					api_key_name = "cmd:bw get notes chatgpt.nvim --raw",
+					api_key_name = "cmd:bw get notes avante.nvim --raw",
 					timeout = 30000, -- timeout in milliseconds
 					extra_request_body = {
 						temperature = 0, -- adjust if needed
@@ -183,6 +183,13 @@ local plugins = {
 			"mfussenegger/nvim-dap", -- Optional, for debugging with DAP
 			"LiadOz/nvim-dap-repl-highlights", -- Optional, for syntax highlighting in the DAP REPL
 		},
+	},
+
+	-- Java Development
+
+	{
+		"mfussenegger/nvim-jdtls",
+		ft = "java",
 	},
 
 	-- Neovim Plugin Development

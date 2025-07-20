@@ -46,10 +46,6 @@ local plugins = {
 	-- Language Server Related
 
 	{
-		"nvimtools/none-ls.nvim",
-		event = "BufEnter",
-	},
-	{
 		"folke/trouble.nvim",
 		command = { "Trouble" },
 		config = function()

@@ -3,8 +3,8 @@ local opt = vim.opt
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-
 vim.g.termguicolors = true
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then

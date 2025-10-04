@@ -15,6 +15,28 @@ local plugins = {
 	-- Utilities
 
 	{
+		"folke/which-key.nvim",
+		lazy = false,
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
+		init = function()
+			local wk = require("which-key")
+			wk.add(mapping.general)
+			wk.add(mapping.buffer)
+			wk.add(mapping.groups)
+		end,
+	},
+
+	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "echasnovski/mini.icons" },
 		config = function()
@@ -38,6 +60,61 @@ local plugins = {
 						border = "Normal",
 						background = "Normal",
 					},
+				},
+			})
+		end,
+	},
+	{
+		"rmagatti/auto-session",
+		lazy = false,
+		keys = {
+			{ "<leader>s", group = "Session" },
+			{ "<leader>sr", "<cmd>AutoSession load<cr>", desc = "Load Session" },
+			{ "<leader>sT", "<cmd>AutoSession new<cr>", desc = "New Session" },
+			{ "<leader>sd", "<cmd>AutoSession delete<cr>", desc = "Delete Session" },
+			{ "<leader>sD", "<cmd>AutoSession deletePicker<cr>", desc = "Pick Session to Delete" },
+			{ "<leader>ss", "<cmd>AutoSession save<cr>", desc = "Save Session" },
+			{ "<leader>sS", "<cmd>AutoSession search<cr>", desc = "Search Sessions" },
+		},
+
+		---enables autocomplete for opts
+		---@module "auto-session"
+		---@type AutoSession.Config
+		opts = {
+			suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+			-- log_level = 'debug',
+		},
+		config = function()
+			local function get_cwd_as_name()
+				local dir = vim.fn.getcwd(0)
+				return dir:gsub("[^A-Za-z0-9]", "_")
+			end
+
+			local overseer = require("overseer")
+			require("auto-session").setup({
+				pre_save_cmds = {
+					function()
+						overseer.save_task_bundle(
+							get_cwd_as_name(),
+							-- Passing nil will use config.opts.save_task_opts. You can call list_tasks() explicitly and
+							-- pass in the results if you want to save specific tasks.
+							nil,
+							{ on_conflict = "overwrite" } -- Overwrite existing bundle, if any
+						)
+					end,
+				},
+				-- Optionally get rid of all previous tasks when restoring a session
+				pre_restore_cmds = {
+					function()
+						for _, task in ipairs(overseer.list_tasks({})) do
+							task:dispose(true)
+						end
+					end,
+				},
+				post_restore_cmds = {
+					function()
+						overseer.load_task_bundle(get_cwd_as_name(), { ignore_missing = true })
+					end,
 				},
 			})
 		end,
@@ -77,7 +154,8 @@ local plugins = {
 		"williamboman/mason-lspconfig.nvim",
 		opts = require("core.configs.mason_lsp"),
 		dependencies = {
-			"williamboman/mason.nvim", opts = require("core.configs.mason")
+			"williamboman/mason.nvim",
+			opts = require("core.configs.mason"),
 		},
 	},
 	{
@@ -151,6 +229,24 @@ local plugins = {
 				command = "lldb-vscode",
 			}
 		end,
+	},
+	{
+		"stevearc/overseer.nvim",
+		keys = {
+			{
+				"<leader>oo",
+				function()
+					require("overseer").toggle()
+				end,
+				desc = "Open Overseer",
+			},
+		},
+		opts = {
+			strategy = "toggleterm",
+			task_list = {
+				direction = "right"
+			}
+		},
 	},
 
 	-- Git Related
@@ -279,26 +375,6 @@ local plugins = {
 		event = "InsertEnter",
 		config = function()
 			require("nvim-autopairs").setup({})
-		end,
-	},
-
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		opts = {},
-		keys = {
-			{
-				"<leader>?",
-				function()
-					require("which-key").show({ global = false })
-				end,
-				desc = "Buffer Local Keymaps (which-key)",
-			},
-		},
-		init = function()
-			local wk = require("which-key")
-			wk.add(mapping.general)
-			wk.add(mapping.buffer)
 		end,
 	},
 }

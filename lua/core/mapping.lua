@@ -30,6 +30,10 @@ M.trouble = {
 		desc = "Buffer Diagnostics (Trouble)",
 	},
 	{
+		"<leader>tc",
+		"<cmd>Trouble todo toggle<cr>",
+	},
+	{
 		"<leader>ts",
 		"<cmd>Trouble symbols toggle focus=false<cr>",
 		desc = "Symbols (Trouble)",
@@ -53,15 +57,16 @@ M.trouble = {
 
 M.fzf_lua = {
 	{ "<leader>f", group = "Search" },
+	{ "<leader>fc", "<cmd>TodoFzfLua<CR>", desc = "Find Todo" },
 	{ "<leader>ff", "<cmd>FzfLua files<CR>", desc = "Find Files" },
 	{ "<leader>fg", "<cmd>FzfLua live_grep<CR>", desc = "Live Grep" },
 	{ "<leader>fb", "<cmd>FzfLua buffers<CR>", desc = "Buffers" },
 	{ "<leader>fo", "<cmd>FzfLua oldfiles<CR>", desc = "Old Files" },
 	{ "<leader>fm", "<cmd>FzfLua marks<CR>", desc = "Marks" },
 	{ "<leader>fz", "<cmd>FzfLua zoxide<CR>", desc = "Zoxide" },
-	{ "<leader>fs", group = "Symbols" },
-	{ "<leader>fsd", "<cmd>FzfLua lsp_document_symbols<CR>", desc = "Document Symbols" },
-	{ "<leader>fsw", "<cmd>FzfLua lsp_workspace_symbols<CR>", desc = "Workspace Symbols" },
+	{ "<leader>fS", group = "Symbols" },
+	{ "<leader>fSd", "<cmd>FzfLua lsp_document_symbols<CR>", desc = "Document Symbols" },
+	{ "<leader>fSw", "<cmd>FzfLua lsp_workspace_symbols<CR>", desc = "Workspace Symbols" },
 	{ "<leader>fl", group = "LSP" },
 	{ "<leader>fld", "<cmd>FzfLua lsp_definitions<CR>", desc = "Definitions" },
 	{ "<leader>flr", "<cmd>FzfLua lsp_references<CR>", desc = "References" },
@@ -106,7 +111,7 @@ M.lsp = {
 }
 
 M.formatter = {
-	{ "<leader>lf", "<cmd>lua require('conform').format()<CR>", desc = "Format" },
+	{ "<leader>lf", "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<CR>", desc = "Format" },
 }
 
 M.oil = {
@@ -125,6 +130,13 @@ M.gitsigns = {
 	{ "<leader>gb", "<cmd>lua require('gitsigns').blame_line()<CR>", desc = "Toggle Blame" },
 	{ "<leader>gd", "<cmd>lua require('gitsigns').toggle_deleted()<CR>", desc = "Diff" },
 	{ "<leader>gp", "<cmd>lua require('gitsigns').preview_hunk()<CR>", desc = "Preview Hunk" },
+}
+
+M.groups = {
+	{ "<leader>s", group = "Session" },
+	{ "<leader>e", group = "Filesystem" },
+	{ "<leader>a", group = "Avante" },
+	{ "<leader>o", group = "Overseer" },
 }
 
 return M

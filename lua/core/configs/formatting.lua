@@ -1,10 +1,10 @@
 local M = {}
 M.formatters_by_ft = {
 	lua = { "stylua" },
-	javascript = { "biome", "deno_fmt", "prettier" },
-	typescript = { "biome", "deno_fmt", "prettier" },
-	astro = { "biome", "prettier" },
-	svelte = { "biome", "prettier" },
+	javascript = { "prettier", "deno_fmt", "biome" },
+	typescript = { "prettier", "deno_fmt", "biome" },
+	astro = { "prettier" },
+	svelte = { "prettier" },
 	json = { "biome", "deno_fmt", "prettier" },
 	jsonc = { "biome", "deno_fmt", "prettier" },
 	rust = { "rustfmt" },

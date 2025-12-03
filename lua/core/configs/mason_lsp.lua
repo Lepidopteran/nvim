@@ -25,6 +25,9 @@ local M = {
 		-- C/C++
 		"clangd",
 
+		-- C#
+		"omnisharp",
+
     -- Rust
     "rust_analyzer",
 

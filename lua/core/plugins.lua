@@ -171,6 +171,7 @@ local plugins = {
 			require("core.configs.lsp_config")
 		end,
 	},
+	{ "Hoffs/omnisharp-extended-lsp.nvim", ft = "cs", opts = nil },
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
@@ -244,8 +245,8 @@ local plugins = {
 		opts = {
 			strategy = "toggleterm",
 			task_list = {
-				direction = "right"
-			}
+				direction = "right",
+			},
 		},
 	},
 

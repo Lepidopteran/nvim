@@ -32,6 +32,9 @@ local M = {
 		"vim",
 		"vimdoc",
 
+		-- Dotnet
+		"c_sharp",
+
 		-- Shading and Rendering
 		"gdshader",
 

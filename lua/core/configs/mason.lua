@@ -8,6 +8,11 @@ local M = {
 		"clang-format",
 		"sqlfluff",
 		"xmlformatter",
+
+		-- Dotnet
+		"csharpier",
+		"netcoredbg",
+		"fantomas",
 	},
 }
 

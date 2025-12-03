@@ -4,7 +4,7 @@ M.formatters_by_ft = {
 	javascript = { "prettier", "deno_fmt", "biome" },
 	typescript = { "prettier", "deno_fmt", "biome" },
 	astro = { "prettier" },
-	svelte = { "prettier" },
+	svelte = { "biome", "prettier" },
 	json = { "biome", "deno_fmt", "prettier" },
 	jsonc = { "biome", "deno_fmt", "prettier" },
 	rust = { "rustfmt" },
@@ -14,6 +14,8 @@ M.formatters_by_ft = {
 	cpp = { "clang-format" },
 	c = { "clang-format" },
 	xml = { "xmlformatter" },
+	cs = { "csharpier" },
+	fsharp = { "fantomas" },
 }
 
 return M

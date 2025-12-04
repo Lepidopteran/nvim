@@ -18,9 +18,11 @@ local servers = {
 }
 
 for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
+	vim.lsp.config(lsp, {
 		capabilities = capabilities,
 	})
+
+	vim.lsp.enable(lsp)
 end
 
 -- Setup lsp servers with configs
@@ -99,7 +101,8 @@ local servers_with_configs = {
 
 for server, config in pairs(servers_with_configs) do
 	config.capabilities = blink.get_lsp_capabilities(config.capabilities)
-	lspconfig[server].setup(config)
+	vim.lsp.config(server, config)
+	vim.lsp.enable(server)
 end
 
 -- Setup lsp diagnostics signs

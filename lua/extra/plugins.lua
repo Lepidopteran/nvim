@@ -45,18 +45,17 @@ local plugins = {
 		"yetone/avante.nvim",
 		event = "VeryLazy",
 		lazy = false,
-		version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+		version = false,
 		opts = {
 			provider = "openai",
 			providers = {
 				openai = {
 					endpoint = "https://api.openai.com/v1",
-					model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+					model = "gpt-5-nano",
 					api_key_name = "cmd:bw get notes avante.nvim --raw",
-					timeout = 30000, -- timeout in milliseconds
+					timeout = 30000,
 					extra_request_body = {
-						temperature = 0, -- adjust if needed
-						max_tokens = 4096,
+						temperature = 0,
 					},
 				},
 			},

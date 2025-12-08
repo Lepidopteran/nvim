@@ -8,7 +8,8 @@ local M = {
 
 		-- Python
 
-		"pyright",
+		"basedpyright",
+		"ruff",
 
 		-- Web Dev
 		"biome",
@@ -19,6 +20,10 @@ local M = {
 		"astro",
 		"svelte",
 
+		-- Config
+		"jsonls",
+		"yamlls",
+
 		-- Java
 		"jdtls",
 
@@ -28,13 +33,29 @@ local M = {
 		-- C#
 		"omnisharp",
 
-    -- Rust
-    "rust_analyzer",
+		-- Rust
+		"rust_analyzer",
 
 		-- Spelling
 		"typos_lsp",
 	},
-	automatic_enable = false,
+
+	automatic_enable = {
+		"biome",
+		"html",
+		"cssls",
+		"tailwindcss",
+		"lua_ls",
+		"basedpyright",
+		"astro",
+		"svelte",
+		"clangd",
+		"jdtls",
+		"gdscript",
+		"jsonls",
+		"yamlls",
+		"ruff",
+	},
 }
 
 return M

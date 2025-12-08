@@ -1,32 +1,8 @@
 local lspconfig = require("lspconfig")
 local blink = require("blink.cmp")
-local capabilities = blink.get_lsp_capabilities()
 
--- Setup lsp servers
 local servers = {
-	"biome",
-	"html",
-	"cssls",
-	"tailwindcss",
-	"lua_ls",
-	"pyright",
-	"astro",
-	"svelte",
-	"clangd",
-	"jdtls",
-	"gdscript",
-}
 
-for _, lsp in ipairs(servers) do
-	vim.lsp.config(lsp, {
-		capabilities = capabilities,
-	})
-
-	vim.lsp.enable(lsp)
-end
-
--- Setup lsp servers with configs
-local servers_with_configs = {
 	-- TS
 	ts_ls = {
 		settings = {
@@ -38,6 +14,7 @@ local servers_with_configs = {
 
 	-- Svelte
 	svelte = {
+
 		-- Typescript fix
 		on_attach = function(client, bufnr)
 			vim.api.nvim_create_autocmd("BufWritePost", {
@@ -99,8 +76,7 @@ local servers_with_configs = {
 	},
 }
 
-for server, config in pairs(servers_with_configs) do
-	config.capabilities = blink.get_lsp_capabilities(config.capabilities)
+for server, config in pairs(servers) do
 	vim.lsp.config(server, config)
 	vim.lsp.enable(server)
 end

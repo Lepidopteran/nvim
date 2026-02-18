@@ -21,11 +21,13 @@ local M = {
 		"svelte",
 
 		-- Config
+		"groovyls",
 		"jsonls",
 		"yamlls",
 
 		-- Java
 		"jdtls",
+		"gradle_ls",
 
 		-- C/C++
 		"clangd",
@@ -55,6 +57,8 @@ local M = {
 		"jsonls",
 		"yamlls",
 		"ruff",
+		"gradle_ls",
+		"groovyls",
 	},
 }
 

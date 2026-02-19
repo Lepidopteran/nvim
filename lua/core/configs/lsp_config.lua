@@ -1,8 +1,4 @@
-local lspconfig = require("lspconfig")
-local blink = require("blink.cmp")
-
 local servers = {
-
 	-- TS
 	ts_ls = {
 		settings = {

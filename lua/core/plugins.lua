@@ -90,30 +90,28 @@ local plugins = {
 				return dir:gsub("[^A-Za-z0-9]", "_")
 			end
 
-			local overseer = require("overseer")
 			require("auto-session").setup({
 				pre_save_cmds = {
 					function()
-						overseer.save_task_bundle(
-							get_cwd_as_name(),
-							-- Passing nil will use config.opts.save_task_opts. You can call list_tasks() explicitly and
-							-- pass in the results if you want to save specific tasks.
-							nil,
-							{ on_conflict = "overwrite" } -- Overwrite existing bundle, if any
-						)
+						local tasks = require("overseer.task_list").list_tasks()
+						local cmds = {}
+						for _, task in ipairs(tasks) do
+							local json = vim.json.encode(task:serialize())
+							json = string.gsub(json, "\\/", "/")
+							json = string.gsub(json, "'", "\\'")
+							table.insert(
+								cmds,
+								string.format("lua require('overseer').new_task(vim.json.decode('%s')):start()", json)
+							)
+						end
+						return cmds
 					end,
 				},
-				-- Optionally get rid of all previous tasks when restoring a session
 				pre_restore_cmds = {
 					function()
-						for _, task in ipairs(overseer.list_tasks({})) do
+						for _, task in ipairs(require("overseer").list_tasks({})) do
 							task:dispose(true)
 						end
-					end,
-				},
-				post_restore_cmds = {
-					function()
-						overseer.load_task_bundle(get_cwd_as_name(), { ignore_missing = true })
 					end,
 				},
 			})
@@ -173,21 +171,16 @@ local plugins = {
 	},
 	{ "Hoffs/omnisharp-extended-lsp.nvim", ft = "cs", opts = nil },
 	{
-		"L3MON4D3/LuaSnip",
-		version = "v2.*",
-		build = "make install_jsregexp",
-	},
-	{
 		"saghen/blink.cmp",
 		lazy = false,
-		dependencies = "rafamadriz/friendly-snippets",
-		version = "v0.*",
+		version = "v1.*",
 		opts = {
 			keymap = {
 				preset = "enter",
 				["<C-k>"] = { "select_prev", "fallback" },
 				["<C-j>"] = { "select_next", "fallback" },
 			},
+			snippets = { preset = "luasnip" },
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
 			},
@@ -196,6 +189,10 @@ local plugins = {
 					selection = { preselect = false, auto_insert = false },
 				},
 			},
+		},
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			{ "L3MON4D3/LuaSnip", version = "v2.*" },
 		},
 		opts_extend = { "sources.default" },
 	},
@@ -243,7 +240,6 @@ local plugins = {
 			},
 		},
 		opts = {
-			strategy = "toggleterm",
 			task_list = {
 				direction = "right",
 			},

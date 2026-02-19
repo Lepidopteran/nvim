@@ -24,6 +24,7 @@ local plugins = {
 		"folke/which-key.nvim",
 		config = function()
 			wk.add(mapping.ZenMode)
+			wk.add(mapping.CodeCompanion)
 		end,
 	},
 
@@ -42,55 +43,32 @@ local plugins = {
 	-- AI Stuff
 
 	{
-		"yetone/avante.nvim",
-		event = "VeryLazy",
-		lazy = false,
-		version = false,
+		"olimorris/codecompanion.nvim",
+		version = "^18.0.0",
 		opts = {
-			provider = "openai",
-			providers = {
-				openai = {
-					endpoint = "https://api.openai.com/v1",
-					model = "gpt-5-nano",
-					api_key_name = "cmd:bw get notes avante.nvim --raw",
-					timeout = 30000,
-					extra_request_body = {
-						temperature = 0,
-					},
-				},
+			interactions = {
+				chat = { adapter = { name = "ollama", model = "qwen2.5-coder:14b" } },
+				inline = { adapter = { name = "ollama", model = "qwen2.5-coder:7b" } },
+				background = { adapter = { name = "ollama", model = "deepseek-coder:1.3b" } },
 			},
 		},
-		build = "make",
 		dependencies = {
-			"stevearc/dressing.nvim",
 			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			"ibhagwan/fzf-lua",
-			"echasnovski/mini.icons",
+			"nvim-treesitter/nvim-treesitter",
+			{ "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
 			{
-				-- support for image pasting
 				"HakonHarnes/img-clip.nvim",
-				event = "VeryLazy",
 				opts = {
-					-- recommended settings
-					default = {
-						embed_image_as_base64 = false,
-						prompt_for_file_name = false,
-						drag_and_drop = {
-							insert_mode = true,
+					filetypes = {
+						codecompanion = {
+							prompt_for_file_name = false,
+							template = "[Image]($FILE_PATH)",
+							use_absolute_path = true,
 						},
-						-- required for Windows users
-						use_absolute_path = true,
 					},
 				},
 			},
-			{
-				"MeanderingProgrammer/render-markdown.nvim",
-				opts = {
-					file_types = { "markdown", "Avante" },
-				},
-				ft = { "markdown", "Avante" },
-			},
+			{ "saghen/blink.cmp", opts = { sources = { per_filetype = { codecompanion = { "codecompanion" } } } } },
 		},
 	},
 	{
@@ -127,7 +105,6 @@ local plugins = {
 			})
 		end,
 	},
-
 
 	-- Blender Addon Development
 
@@ -184,7 +161,6 @@ local plugins = {
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",
-						-- make lazydev completions top priority (see `:h blink.cmp`)
 						score_offset = 100,
 					},
 				},

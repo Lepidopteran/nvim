@@ -1,4 +1,4 @@
-local M = {
+return {
 	ensure_installed = {
 		-- Lua
 		"lua_ls",
@@ -32,11 +32,11 @@ local M = {
 		-- C/C++
 		"clangd",
 
-		-- C#
-		"omnisharp",
-
 		-- Rust
 		"rust_analyzer",
+
+		-- C#
+		"omnisharp",
 
 		-- Spelling
 		"typos_lsp",
@@ -59,7 +59,6 @@ local M = {
 		"ruff",
 		"gradle_ls",
 		"groovyls",
+		"rust_analyzer",
 	},
 }
-
-return M

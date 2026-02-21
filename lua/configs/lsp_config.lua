@@ -56,20 +56,6 @@ local servers = {
 		organize_imports_on_format = true,
 		enable_import_completion = true,
 	},
-
-	-- Rust
-	rust_analyzer = {
-		settings = {
-			["rust-analyzer"] = {
-				check = {
-					command = "clippy",
-				},
-				diagnostics = {
-					enable = true,
-				},
-			},
-		},
-	},
 }
 
 for server, config in pairs(servers) do

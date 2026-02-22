@@ -32,9 +32,6 @@ return {
 		-- C/C++
 		"clangd",
 
-		-- Rust
-		"rust_analyzer",
-
 		-- C#
 		"omnisharp",
 
@@ -59,6 +56,5 @@ return {
 		"ruff",
 		"gradle_ls",
 		"groovyls",
-		"rust_analyzer",
 	},
 }

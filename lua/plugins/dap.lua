@@ -1,10 +1,12 @@
+local dap = require("dap")
+
 return {
 	"mfussenegger/nvim-dap",
 	event = "BufReadPre",
-	config = function()
-		require("dap").adapters.cpp = {
+	init = function()
+		dap.adapters.codelldb = {
 			type = "executable",
-			command = "lldb-vscode",
+			command = "codelldb",
 		}
 	end,
 }

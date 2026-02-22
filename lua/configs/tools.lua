@@ -10,4 +10,5 @@ return {
 	"csharpier",
 	"netcoredbg",
 	"fantomas",
+	"codelldb",
 }

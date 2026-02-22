@@ -4,8 +4,16 @@ return {
 	{
 		"olimorris/codecompanion.nvim",
 		version = "^18.0.0",
-		event = "VeryLazy",
+		event = "BufRead",
 		opts = {
+			log_level = "DEBUG",
+			display = {
+				chat = {
+					window = {
+						position = "right",
+					},
+				},
+			},
 			interactions = {
 				chat = { adapter = { name = "ollama", model = "qwen2.5-coder:14b" } },
 				inline = { adapter = { name = "ollama", model = "qwen2.5-coder:7b" } },
@@ -13,31 +21,30 @@ return {
 			},
 		},
 		init = function()
-			local code = require("codecompanion")
-
 			wk.add({
-				{ "<leader>a", group = "Artificial Intelligence", icon = "🧠" },
+				{ "<leader>a", group = "Artificial Intelligence", icon = "" },
 				{
-					"<leader>aa",
-					function()
-						code.actions({})
-					end,
+					"<leader>ap",
+					"<cmd>CodeCompanionActions<CR>",
 					desc = "Actions",
 				},
 				{
-					"<leader>ac",
-					function()
-						code.toggle()
-					end,
+					"<leader>aa",
+					"<cmd>CodeCompanionChat Toggle<CR>",
 					desc = "Toggle Code Companion Chat",
 				},
 				{
-					"<leader>ap",
-					function()
-						code.inline({})
-					end,
+					"<leader>aA",
+					"<cmd>CodeCompanionChat Add<CR>",
+					desc = "Add Code to Chat",
+					mode = { "n", "v" },
+				},
+				{
+					"<leader>ai",
+					"<cmd>CodeCompanion<CR>",
 					desc = "Code Companion Inline",
-				}
+					mode = { "n", "v" },
+				},
 			})
 		end,
 		dependencies = {

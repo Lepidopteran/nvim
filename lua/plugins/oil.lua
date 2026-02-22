@@ -16,7 +16,7 @@ return {
 			float = {
 				padding = 4,
 				border = "rounded",
-			}
+			},
 		},
 		lazy = false,
 		init = function()
@@ -31,5 +31,11 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"JezerM/oil-lsp-diagnostics.nvim",
+		event = "BufReadPre",
+		dependencies = { "stevearc/oil.nvim" },
+		opts = {},
 	},
 }

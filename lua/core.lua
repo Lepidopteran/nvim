@@ -68,6 +68,5 @@ require("lazy").setup({
 	defaults = { lazy = true },
 })
 
-require("lazygit")
 require("plugin-dev")
 require("tools")

@@ -15,10 +15,6 @@ return {
 		opts = {},
 	},
 	{
-		"stevearc/dressing.nvim",
-		opts = {},
-	},
-	{
 		"folke/noice.nvim",
 		lazy = false,
 		init = function()

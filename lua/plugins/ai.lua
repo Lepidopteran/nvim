@@ -22,7 +22,7 @@ return {
 		},
 		init = function()
 			wk.add({
-				{ "<leader>a", group = "Artificial Intelligence", icon = "" },
+				{ "<leader>a", group = "Artificial Intelligence", mode = { "n", "v" }, icon = "" },
 				{
 					"<leader>ap",
 					"<cmd>CodeCompanionActions<CR>",

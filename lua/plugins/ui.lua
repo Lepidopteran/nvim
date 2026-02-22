@@ -1,3 +1,5 @@
+local wk = require("which-key")
+
 return {
 	{
 		"rebelot/kanagawa.nvim",
@@ -17,15 +19,13 @@ return {
 		opts = {},
 	},
 	{
-		"rcarriga/nvim-notify",
-		event = "VeryLazy",
-		opts = {
-			stages = "static",
-		},
-	},
-	{
 		"folke/noice.nvim",
-		event = "VeryLazy",
+		lazy = false,
+		init = function()
+			wk.add({
+				{ "<leader>fM", "<cmd>Noice fzf<CR>", desc = "Messages" },
+			})
+		end,
 		opts = {
 			cmdline = {
 				enabled = true,
@@ -45,7 +45,6 @@ return {
 		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"rcarriga/nvim-notify",
 		},
 	},
 }

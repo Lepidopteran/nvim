@@ -1,33 +1,5 @@
 local wk = require("which-key")
-
 return {
-	{
-		"mfussenegger/nvim-dap",
-		event = "BufReadPre",
-		config = function()
-			require("dap").adapters.cpp = {
-				type = "executable",
-				command = "lldb-vscode",
-			}
-		end,
-	},
-	{
-		"stevearc/overseer.nvim",
-		keys = {
-			{
-				"<leader>oo",
-				function()
-					require("overseer").toggle()
-				end,
-				desc = "Open Overseer",
-			},
-		},
-		opts = {
-			task_list = {
-				direction = "right",
-			},
-		},
-	},
 	{
 		"folke/trouble.nvim",
 		command = { "Trouble" },
@@ -35,8 +7,7 @@ return {
 		init = function()
 			wk.add({ { "<leader>t", group = "Trouble" } })
 		end,
-		keys =
-		{
+		keys = {
 			{
 				"<leader>tt",
 				"<cmd>Trouble diagnostics toggle<cr>",
@@ -76,6 +47,6 @@ return {
 				"<cmd>TodoFzfLua<CR>",
 				desc = "Find Todo",
 			},
-		}
+		},
 	},
 }

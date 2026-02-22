@@ -19,10 +19,10 @@ return {
 				selectedLineBgColor = { bg = "Visual" },
 				unstagedChangesColor = { fg = "DiagnosticError" },
 			},
-		},
-		win = {
-			border = "rounded",
-			minimal = false,
+			win = {
+				border = "rounded",
+				minimal = false,
+			},
 		},
 	},
 	init = function()

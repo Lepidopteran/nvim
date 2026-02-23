@@ -2,7 +2,7 @@ local wk = require("which-key")
 return {
 	"olimorris/codecompanion.nvim",
 	version = "^18.0.0",
-	event = "BufRead",
+	event = "BufReadPre",
 	opts = {
 		log_level = "DEBUG",
 		display = {

@@ -12,7 +12,7 @@ local servers = {
 	svelte = {
 
 		-- Typescript fix
-		on_attach = function(client, bufnr)
+		on_attach = function(client, _)
 			vim.api.nvim_create_autocmd("BufWritePost", {
 				pattern = { "*.js", "*.ts" },
 				group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),

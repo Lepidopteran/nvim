@@ -11,4 +11,5 @@ return {
 	"netcoredbg",
 	"fantomas",
 	"codelldb",
+	"tree-sitter-cli"
 }

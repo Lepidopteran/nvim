@@ -3,22 +3,29 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
 		init = function()
-			require("nvim-treesitter").install(require("configs.treesitter"))
+			local config = require("configs.treesitter")
+			local languages = config.languages
+			local configs = config.configs
+
+			require("nvim-treesitter").install(languages)
+
+			for _, lang in ipairs(languages) do
+				local lang_config = configs and configs[lang]
+				if lang_config then
+					for _, value in ipairs(lang_config) do
+						languages[#languages + 1] = value
+					end
+					vim.treesitter.language.register(lang, lang_config)
+				end
+			end
+
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = languages,
+				callback = function()
+					vim.treesitter.start()
+				end,
+			})
 		end,
-		opts = {
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = true,
-			},
-			indent = {
-				enable = true,
-			},
-		},
 		build = ":TSUpdate",
-	},
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		event = "BufRead",
-		opts = {},
 	},
 }

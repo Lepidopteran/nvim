@@ -1,45 +1,56 @@
+---@class LanguageConfig
+---@field filetypes string[]
+
 return {
-	-- Web Development
-	"astro",
-	"css",
-	"scss",
-	"html",
-	"javascript",
-	"svelte",
-	"typescript",
-	"vue",
+	---@type table<string, LanguageConfig>
+	language_configs = {
+		xml = {
+			filetypes = { "xml", "svg", "xslt" },
+		},
+	},
+	languages = {
+		-- Web Development
+		"astro",
+		"css",
+		"scss",
+		"html",
+		"javascript",
+		"svelte",
+		"typescript",
+		"vue",
 
-	-- Scripting and Programming Languages
-	"bash",
-	"lua",
-	"python",
-	"rust",
-	"gdscript",
-	"c",
-	"cpp",
+		-- Scripting and Programming Languages
+		"bash",
+		"lua",
+		"python",
+		"rust",
+		"gdscript",
+		"c",
+		"cpp",
 
-	-- Markup and Configuration
-	"dockerfile",
-	"json",
-	"jsonc",
-	"markdown",
-	"toml",
-	"yaml",
-	"xml",
+		-- Markup and Configuration
+		"dockerfile",
+		"json",
+		"jsonc",
+		"markdown",
+		"toml",
+		"yaml",
+		"xml",
 
-	-- Editor Specific
-	"vim",
-	"vimdoc",
+		-- Editor Specific
+		"vim",
+		"vimdoc",
 
-	-- Dotnet
-	"c_sharp",
+		-- Dotnet
+		"c_sharp",
 
-	-- Shading and Rendering
-	"gdshader",
+		-- Shading and Rendering
+		"gdshader",
 
-	-- Java
-	"java",
+		-- Java
+		"java",
 
-	-- Sql
-	"sql",
+		-- Sql
+		"sql",
+	},
 }

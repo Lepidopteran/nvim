@@ -6,11 +6,9 @@ return {
 	---@module "conform"
 	---@type conform.setupOpts
 	opts = {
-		format_on_save = {
-			timeout_ms = 500,
-		},
 		default_format_opts = {
 			lsp_format = "fallback",
+			timeout_ms = 1000,
 		},
 		formatters_by_ft = {
 			lua = { "stylua" },
@@ -18,13 +16,13 @@ return {
 			javascriptreact = { "oxfmt" },
 			typescript = { "oxfmt", stop_after_first = true },
 			typescriptreact = { "oxfmt" },
-			astro = { "prettier" },
-			svelte = { "biome", "prettier" },
+			astro = { "dprint", "prettier", stop_after_first = true },
+			svelte = { "dprint", "biome", stop_after_first = true },
 			json = { "oxfmt" },
 			jsonc = { "biome" },
 			rust = { "rustfmt" },
-			html = { "oxfmt" },
-			css = { "oxfmt" },
+			html = { "dprint", "oxfmt" },
+			css = { "dprint", "oxfmt" },
 			scss = { "prettier" },
 			cpp = { "clang-format" },
 			c = { "clang-format" },
@@ -37,8 +35,7 @@ return {
 			dprint = {
 				---@param ctx conform.Context
 				condition = function(ctx)
-					local dprint_config = vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1]
-					return dprint_config ~= nil
+					return vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1] ~= nil
 				end,
 			},
 		},

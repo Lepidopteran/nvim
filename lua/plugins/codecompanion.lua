@@ -2,7 +2,35 @@ local wk = require("which-key")
 return {
 	"olimorris/codecompanion.nvim",
 	version = "^18.0.0",
-	event = "BufReadPre",
+	init = function()
+		wk.add({
+			{ "<leader>a", group = "Artificial Intelligence", mode = { "n", "v" }, icon = "" },
+		})
+	end,
+	keys = {
+		{
+			"<leader>ap",
+			"<cmd>CodeCompanionActions<CR>",
+			desc = "Actions",
+		},
+		{
+			"<leader>aa",
+			"<cmd>CodeCompanionChat Toggle<CR>",
+			desc = "Toggle Code Companion Chat",
+		},
+		{
+			"<leader>aA",
+			"<cmd>CodeCompanionChat Add<CR>",
+			desc = "Add Code to Chat",
+			mode = { "n", "v" },
+		},
+		{
+			"<leader>ai",
+			"<cmd>CodeCompanion<CR>",
+			desc = "Code Companion Inline",
+			mode = { "n", "v" },
+		},
+	},
 	opts = {
 		log_level = "DEBUG",
 		display = {
@@ -18,33 +46,6 @@ return {
 			background = { adapter = { name = "ollama", model = "deepseek-coder:1.3b" } },
 		},
 	},
-	init = function()
-		wk.add({
-			{ "<leader>a", group = "Artificial Intelligence", mode = { "n", "v" }, icon = "" },
-			{
-				"<leader>ap",
-				"<cmd>CodeCompanionActions<CR>",
-				desc = "Actions",
-			},
-			{
-				"<leader>aa",
-				"<cmd>CodeCompanionChat Toggle<CR>",
-				desc = "Toggle Code Companion Chat",
-			},
-			{
-				"<leader>aA",
-				"<cmd>CodeCompanionChat Add<CR>",
-				desc = "Add Code to Chat",
-				mode = { "n", "v" },
-			},
-			{
-				"<leader>ai",
-				"<cmd>CodeCompanion<CR>",
-				desc = "Code Companion Inline",
-				mode = { "n", "v" },
-			},
-		})
-	end,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
@@ -61,13 +62,13 @@ return {
 				},
 			},
 		},
-	},
-	{
-		"saghen/blink.cmp",
-		opts = {
-			sources = {
-				per_filetype = {
-					codecompanion = { "codecompanion" },
+		{
+			"saghen/blink.cmp",
+			opts = {
+				sources = {
+					per_filetype = {
+						codecompanion = { "codecompanion" },
+					},
 				},
 			},
 		},

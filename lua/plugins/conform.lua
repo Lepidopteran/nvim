@@ -29,6 +29,7 @@ return {
 			json = { "oxfmt" },
 			jsonc = { "biome" },
 			rust = { "rustfmt" },
+			svelte = { "dprint", "prettier" },
 			html = { "dprint", "biome", "oxfmt" },
 			css = { "dprint", "biome", "oxfmt" },
 			scss = { "prettier" },
@@ -58,7 +59,6 @@ return {
 			callback = function(args)
 				require("conform").format({
 					bufnr = args.buf,
-					async = true,
 				})
 			end,
 		})

@@ -1,8 +1,16 @@
-local wk = require("which-key")
-
 return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
+	command = "ConformInfo",
+	keys = {
+		{
+			"<leader>lf",
+			function()
+				require("conform").format({ async = true })
+			end,
+			desc = "Format",
+		},
+	},
 	---@module "conform"
 	---@type conform.setupOpts
 	opts = {
@@ -44,24 +52,15 @@ return {
 			},
 		},
 	},
-
 	init = function()
-		local conform = require("conform")
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			pattern = "*",
 			callback = function(args)
-				require("conform").format({ bufnr = args.buf })
+				require("conform").format({
+					bufnr = args.buf,
+					async = true,
+				})
 			end,
-		})
-
-		wk.add({
-			{
-				"<leader>lf",
-				function()
-					conform.format({ async = true, lsp_format = "first" })
-				end,
-				desc = "Format",
-			},
 		})
 	end,
 }

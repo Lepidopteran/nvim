@@ -54,7 +54,6 @@ require("lazy").setup({
 		{ import = "languages" },
 		{ import = "plugins" },
 		{ import = "editor" },
-		{ import = "lsp" },
 		{ import = "ui" },
 	},
 	defaults = { lazy = true },

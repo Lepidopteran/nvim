@@ -13,6 +13,8 @@ return {
 
 		-- Web Dev
 		"biome",
+		"oxlint",
+		"dprint",
 		"html",
 		"cssls",
 		"ts_ls",
@@ -41,6 +43,8 @@ return {
 
 	automatic_enable = {
 		"biome",
+		"oxlint",
+		"dprint",
 		"html",
 		"cssls",
 		"tailwindcss",

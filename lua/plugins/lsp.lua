@@ -1,4 +1,3 @@
-local wk = require("which-key")
 return {
 	{
 		"neovim/nvim-lspconfig",
@@ -52,20 +51,6 @@ return {
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 					end,
 					desc = "Toggle Inlay Hints",
-				},
-			})
-		end,
-	},
-	{
-		"stevearc/conform.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		opts = require("configs.formatting"),
-		init = function()
-			wk.add({
-				{
-					"<leader>lf",
-					"<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<CR>",
-					desc = "Format",
 				},
 			})
 		end,

@@ -1,15 +1,21 @@
 return {
-	"stylua",
-	"deno",
-	"biome",
+	-- Formatting Tools
+	"clang-format",
+	"csharpier",
+	"fantomas",
+	"oxfmt",
 	"prettier",
 	"prettierd",
-	"clang-format",
-	"sqlfluff",
+	"stylua",
 	"xmlformatter",
-	"csharpier",
+
+	-- Linters and Analyzers
+	"sqlfluff",
+
+	-- Debugging Tools
 	"netcoredbg",
-	"fantomas",
 	"codelldb",
-	"tree-sitter-cli"
+
+	-- Other Tools
+	"tree-sitter-cli",
 }

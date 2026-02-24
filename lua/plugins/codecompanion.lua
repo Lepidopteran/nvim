@@ -19,10 +19,10 @@ return {
 			desc = "Toggle Code Companion Chat",
 		},
 		{
-			"<leader>aA",
+			"<leader>aa",
 			"<cmd>CodeCompanionChat Add<CR>",
 			desc = "Add Code to Chat",
-			mode = { "n", "v" },
+			mode = { "v" },
 		},
 		{
 			"<leader>ai",

@@ -33,9 +33,13 @@ return {
 		},
 		formatters = {
 			dprint = {
-				---@param ctx conform.Context
-				condition = function(ctx)
-					return vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1] ~= nil
+				condition = function()
+					return vim.fs.find({ "dprint.json" })[1] ~= nil
+				end,
+			},
+			biome = {
+				condition = function()
+					return vim.fs.find({ "biome.json" })[1] ~= nil
 				end,
 			},
 		},

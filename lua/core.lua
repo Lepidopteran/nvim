@@ -23,9 +23,9 @@ require("lazy").setup({
 	spec = {
 		{
 			"folke/which-key.nvim",
-			event = "VeryLazy",
-			init = function()
-				require("which-key").add({
+			lazy = false,
+			opts = {
+				spec = {
 					{ "<C-s>", "<cmd>w<CR>", desc = "Save File" },
 					{ "<esc>", "<cmd>noh<CR>", desc = "Clear Highlights" },
 					{
@@ -37,6 +37,7 @@ require("lazy").setup({
 					},
 
 					{ "p", "P", desc = "Paste without yanking", mode = "x" },
+					{ "<leader>b", group = "Buffers" },
 					{ "<leader>bc", "<cmd>bdelete<cr>", desc = "Close Buffer" },
 					{ "<leader>bn", "<cmd>bnext<cr>", desc = "Next Buffer" },
 					{ "<leader>bp", "<cmd>bprevious<cr>", desc = "Previous Buffer" },
@@ -47,15 +48,6 @@ require("lazy").setup({
 							return require("which-key.extras").expand.buf()
 						end,
 					},
-				})
-			end,
-			keys = {
-				{
-					"<leader>?",
-					function()
-						require("which-key").show({ global = false })
-					end,
-					desc = "Buffer Local Keymaps (which-key)",
 				},
 			},
 		},

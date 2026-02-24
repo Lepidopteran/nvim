@@ -1,6 +1,12 @@
+local wk = require("which-key")
 return {
 	{
 		"stevearc/overseer.nvim",
+		init = function ()
+			wk.add({
+				{ "<leader>o", group = "Overseer" },
+			})
+		end,
 		keys = {
 			{
 				"<leader>oo",

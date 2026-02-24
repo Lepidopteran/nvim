@@ -1,8 +1,8 @@
+local wk = require("which-key")
 return {
 	"rmagatti/auto-session",
 	lazy = false,
 	keys = {
-		{ "<leader>s", group = "Session" },
 		{ "<leader>sr", "<cmd>AutoSession load<cr>", desc = "Load Session" },
 		{ "<leader>sT", "<cmd>AutoSession new<cr>", desc = "New Session" },
 		{ "<leader>sd", "<cmd>AutoSession delete<cr>", desc = "Delete Session" },
@@ -10,6 +10,11 @@ return {
 		{ "<leader>ss", "<cmd>AutoSession save<cr>", desc = "Save Session" },
 		{ "<leader>sS", "<cmd>AutoSession search<cr>", desc = "Search Sessions" },
 	},
+	init = function()
+		wk.add({
+			{ "<leader>s", group = "Session" },
+		})
+	end,
 
 	---enables autocomplete for opts
 	---@module "auto-session"

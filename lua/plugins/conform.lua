@@ -17,6 +17,7 @@ return {
 		default_format_opts = {
 			lsp_format = "fallback",
 			stop_after_first = true,
+			quiet = false,
 			timeout_ms = 1000,
 		},
 		formatters_by_ft = {

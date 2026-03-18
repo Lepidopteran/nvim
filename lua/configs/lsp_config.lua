@@ -1,13 +1,4 @@
 local servers = {
-	-- TS
-	ts_ls = {
-		settings = {
-			implicitProjectConfiguration = {
-				checkJs = true,
-			},
-		},
-	},
-
 	-- Svelte
 	svelte = {
 

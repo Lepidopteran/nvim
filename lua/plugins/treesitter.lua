@@ -2,6 +2,11 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"nvim-treesitter/nvim-treesitter-context",
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
 		init = function()
 			local config = require("configs.treesitter")
 			local languages = config.languages

@@ -12,8 +12,6 @@ return {
 			local languages = config.languages
 			local configs = config.configs
 
-			require("nvim-treesitter").install(languages)
-
 			for _, lang in ipairs(languages) do
 				local lang_config = configs and configs[lang]
 				if lang_config then

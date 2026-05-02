@@ -52,5 +52,8 @@ return {
 
 		-- Sql
 		"sql",
+
+		-- UI
+		"slint",
 	},
 }

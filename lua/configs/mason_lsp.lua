@@ -39,12 +39,16 @@ return {
 
 		-- Spelling
 		"typos_lsp",
+
+		-- UI
+		"slint_lsp",
 	},
 
 	automatic_enable = {
 		"biome",
 		"oxlint",
 		"dprint",
+		"slint_lsp",
 		"html",
 		"cssls",
 		"tailwindcss",

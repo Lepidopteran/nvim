@@ -40,6 +40,7 @@ return {
 			cs = { "csharpier" },
 			fsharp = { "fantomas" },
 			python = { "ruff_fix", "ruff_format", "ruff_organize_imports", stop_after_first = false },
+			sql = { "sqlfluff" },
 		},
 		formatters = {
 			dprint = {
@@ -51,6 +52,9 @@ return {
 				condition = function(_, ctx)
 					return vim.fs.find({ "biome.json" }, { path = ctx.filename, upward = true })[1] ~= nil
 				end,
+			},
+			sqlfluff = {
+				args = { "--dialect", "ansi", "-" },
 			},
 		},
 	},

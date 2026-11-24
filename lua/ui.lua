@@ -1,7 +1,5 @@
 local wk = require("which-key")
 
-vim.pack.add({ "https://github.com/nvim-mini/mini.animate" })
-
 return {
 	{
 		"rebelot/kanagawa.nvim",
@@ -17,6 +15,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {},
 	},
+	{ "nvim-mini/mini.animate", version = false },
 	-- {
 	-- 	"folke/noice.nvim",
 	-- 	lazy = false,

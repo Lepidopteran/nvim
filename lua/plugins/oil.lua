@@ -3,7 +3,19 @@ local wk = require("which-key")
 return {
 	{
 		"stevearc/oil.nvim",
-		dependencies = { "echasnovski/mini.icons" },
+		dependencies = {
+			"echasnovski/mini.icons",
+			{
+				"JezerM/oil-lsp-diagnostics.nvim",
+				event = "BufReadPre",
+				dependencies = { "stevearc/oil.nvim" },
+				opts = {},
+			},
+			{
+				"malewicz1337/oil-git.nvim",
+				dependencies = { "stevearc/oil.nvim" },
+			},
+		},
 		---@module "oil"
 		---@type oil.SetupOpts
 		opts = {
@@ -31,11 +43,5 @@ return {
 				},
 			})
 		end,
-	},
-	{
-		"JezerM/oil-lsp-diagnostics.nvim",
-		event = "BufReadPre",
-		dependencies = { "stevearc/oil.nvim" },
-		opts = {},
 	},
 }

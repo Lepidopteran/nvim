@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "mini.animate": {
+      "rev": "e9c962aaa2c51e856ba7efd553eeaab965e782ad",
+      "src": "https://github.com/nvim-mini/mini.animate"
+    }
+  }
+}

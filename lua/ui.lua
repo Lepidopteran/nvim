@@ -1,5 +1,7 @@
 local wk = require("which-key")
 
+vim.pack.add({ "https://github.com/nvim-mini/mini.animate" })
+
 return {
 	{
 		"rebelot/kanagawa.nvim",
@@ -15,33 +17,33 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {},
 	},
-	{
-		"folke/noice.nvim",
-		lazy = false,
-		init = function()
-			wk.add({
-				{ "<leader>fM", "<cmd>Noice fzf<CR>", desc = "Messages" },
-			})
-		end,
-		opts = {
-			cmdline = {
-				enabled = true,
-				view = "cmdline",
-			},
-			lsp = {
-				override = {
-					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-					["vim.lsp.util.stylize_markdown"] = true,
-					["cmp.entry.get_documentation"] = true,
-				},
-			},
-			presets = {
-				bottom_search = true,
-				long_message_to_split = true,
-			},
-		},
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	lazy = false,
+	-- 	init = function()
+	-- 		wk.add({
+	-- 			{ "<leader>fM", "<cmd>Noice fzf<CR>", desc = "Messages" },
+	-- 		})
+	-- 	end,
+	-- 	opts = {
+	-- 		cmdline = {
+	-- 			enabled = true,
+	-- 			view = "cmdline",
+	-- 		},
+	-- 		lsp = {
+	-- 			override = {
+	-- 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+	-- 				["vim.lsp.util.stylize_markdown"] = true,
+	-- 				["cmp.entry.get_documentation"] = true,
+	-- 			},
+	-- 		},
+	-- 		presets = {
+	-- 			bottom_search = true,
+	-- 			long_message_to_split = true,
+	-- 		},
+	-- 	},
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- },
 }

@@ -15,7 +15,13 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {},
 	},
-	{ "nvim-mini/mini.animate", version = false },
+	{
+		"j-hui/fidget.nvim",
+		lazy = false,
+		opts = {
+			-- options
+		},
+	},
 	-- {
 	-- 	"folke/noice.nvim",
 	-- 	lazy = false,

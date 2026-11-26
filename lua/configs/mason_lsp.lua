@@ -14,7 +14,6 @@ return {
 		-- Web Dev
 		"biome",
 		"oxlint",
-		"dprint",
 		"html",
 		"cssls",
 		"ts_ls",
@@ -26,6 +25,9 @@ return {
 		"groovyls",
 		"jsonls",
 		"yamlls",
+
+		-- Formatting
+		"dprint",
 
 		-- Java
 		"jdtls",

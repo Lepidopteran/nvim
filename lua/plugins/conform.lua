@@ -28,7 +28,6 @@ return {
 			typescriptreact = { "dprint", "oxfmt" },
 			astro = { "dprint", "prettier" },
 			json = { "dprint", "oxfmt" },
-			jsonc = { "biome" },
 			rust = { "rustfmt" },
 			svelte = { "dprint", "prettier" },
 			html = { "dprint", "biome", "oxfmt" },

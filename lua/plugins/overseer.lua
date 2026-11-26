@@ -2,14 +2,23 @@ local wk = require("which-key")
 return {
 	{
 		"stevearc/overseer.nvim",
-		init = function ()
+		---@module 'overseer'
+		---@type overseer.SetupOpts
+		init = function()
 			wk.add({
-				{ "<leader>o", group = "Overseer" },
+				{ "<leader>r", group = "Overseer" },
 			})
 		end,
 		keys = {
 			{
-				"<leader>oo",
+				"<leader>rr",
+				function()
+					require("overseer").run_task()
+				end,
+				desc = "Run Task",
+			},
+			{
+				"<leader>ro",
 				function()
 					require("overseer").toggle()
 				end,

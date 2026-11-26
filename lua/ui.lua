@@ -13,7 +13,11 @@ return {
 		"nvim-lualine/lualine.nvim",
 		lazy = false,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {},
+		opts = {
+			sections = {
+				lualine_x = { "overseer" },
+			},
+		},
 	},
 	{
 		"j-hui/fidget.nvim",

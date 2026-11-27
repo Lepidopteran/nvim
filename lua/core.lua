@@ -41,6 +41,22 @@ require("lazy").setup({
 					{ "<leader>bc", "<cmd>bdelete<cr>", desc = "Close Buffer" },
 					{ "<leader>bn", "<cmd>bnext<cr>", desc = "Next Buffer" },
 					{ "<leader>bp", "<cmd>bprevious<cr>", desc = "Previous Buffer" },
+					{ "<leader>e", group = "Filesystem" },
+
+					{
+						"<leader>ed",
+						function()
+							vim.ui.open(vim.fn.expand("%:p:h"))
+						end,
+						desc = "Open Current File Directory in Filesystem",
+					},
+					{
+						"<leader>ep",
+						function()
+							vim.ui.open(vim.fs.root(0, { ".git" }) or vim.fn.getcwd())
+						end,
+						desc = "Open Project Directory in Filesystem",
+					},
 					{
 						"<leader>bb",
 						group = "buffers",

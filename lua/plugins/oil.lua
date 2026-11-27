@@ -33,7 +33,6 @@ return {
 		lazy = false,
 		init = function()
 			wk.add({
-				{ "<leader>e", group = "Filesystem" },
 				{
 					"<leader>eo",
 					function()

@@ -36,8 +36,8 @@ return {
 		-- C/C++
 		"clangd",
 
-		-- C#
-		"omnisharp",
+		-- C# disabled for now till the registry gets updated
+		-- "omnisharp",
 
 		-- Spelling
 		"typos_lsp",
